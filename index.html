@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Earth Is Dying — World Environment Day 2026</title>
+<title>Earth Is Dying - World Environment Day 2026</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
@@ -19,7 +21,7 @@
 
 <!-- ╔══ ACCUSATION BAR ══╗ -->
 <div id="bar">
-  <div class="bar-brand t-lang" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH IS DYING</div>
+  <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH IS DYING</button>
   <div class="bar-left">
     <span class="t-lang" data-en="TIME ON PAGE:" data-hi="पेज पर समय:">TIME ON PAGE:</span> <b id="b-time">00:00</b>
   </div>
@@ -174,6 +176,7 @@
 
 <!-- ╔══ STAT ROWS ══╗ -->
 <section id="stats">
+  <div class="scope-banner t-lang" data-en="GLOBAL DATA ONLY | WORLDWIDE EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS. NOT INDIA-ONLY." data-hi="केवल वैश्विक डेटा | दुनिया भर के उत्सर्जन, आबादी, प्रदूषण और वन हानि। सिर्फ भारत नहीं।">GLOBAL DATA ONLY | WORLDWIDE EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS. NOT INDIA-ONLY.</div>
 
   <div class="stat-row r">
     <span class="stat-ghost">37.8</span>
@@ -186,6 +189,15 @@
       </p>
       <span class="stat-src">IEA Global Energy Review 2024</span>
     </div>
+    <aside class="stat-side">
+      <div class="heat-card heat-card--red">
+        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+        <div class="heat-pulse">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="heat-copy t-lang" data-en="Global CO₂, not India-only." data-hi="वैश्विक CO₂, सिर्फ भारत नहीं।">Global CO₂, not India-only.</p>
+      </div>
+    </aside>
   </div>
 
   <div class="stat-row r">
@@ -199,6 +211,15 @@
       </p>
       <span class="stat-src">WWF Living Planet Report 2024</span>
     </div>
+    <aside class="stat-side">
+      <div class="heat-card heat-card--acid">
+        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+        <div class="heat-pulse heat-pulse--wide">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="heat-copy t-lang" data-en="Global wildlife decline, not a regional sample." data-hi="वैश्विक वन्यजीव गिरावट, कोई क्षेत्रीय नमूना नहीं।">Global wildlife decline, not a regional sample.</p>
+      </div>
+    </aside>
   </div>
 
   <div class="stat-row r">
@@ -212,6 +233,15 @@
       </p>
       <span class="stat-src">Lancet Commission on Pollution & Health, 2022</span>
     </div>
+    <aside class="stat-side">
+      <div class="heat-card heat-card--cyan">
+        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+        <div class="heat-pulse heat-pulse--bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="heat-copy t-lang" data-en="Global pollution deaths every year." data-hi="हर साल वैश्विक प्रदूषण मौतें।">Global pollution deaths every year.</p>
+      </div>
+    </aside>
   </div>
 
   <div class="stat-row r">
@@ -225,6 +255,15 @@
       </p>
       <span class="stat-src">UN FAO Global Forest Resources Assessment</span>
     </div>
+    <aside class="stat-side">
+      <div class="heat-card heat-card--green">
+        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+        <div class="heat-pulse heat-pulse--forest">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="heat-copy t-lang" data-en="Global forest loss, not India-only." data-hi="वैश्विक वन हानि, सिर्फ भारत नहीं।">Global forest loss, not India-only.</p>
+      </div>
+    </aside>
   </div>
 
 </section>
@@ -287,11 +326,12 @@
 <section id="charts">
   <span class="section-eyebrow muted r t-lang" data-en="The Evidence" data-hi="सबूत">The Evidence</span>
   <h2 class="section-h2 r t-lang" 
-      style="color:var(--off);font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:-.025em;margin-bottom:3rem"
+      style="color:var(--off);font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:-.025em;margin-bottom:1.5rem"
       data-en="DATA DOESN'T LIE.<br><span style='-webkit-text-stroke:1px var(--muted);color:transparent'>GOVERNMENTS DO.</span>"
       data-hi="डेटा झूठ नहीं बोलता।<br><span style='-webkit-text-stroke:1px var(--muted);color:transparent'>सरकारें बोलती हैं।</span>">
     DATA DOESN'T LIE.<br><span style="-webkit-text-stroke:1px var(--muted);color:transparent">GOVERNMENTS DO.</span>
   </h2>
+  <p class="chart-scope t-lang" data-en="All charts below use global data unless a source line says otherwise." data-hi="नीचे दिए गए सभी चार्ट वैश्विक डेटा का उपयोग करते हैं, जब तक स्रोत लाइन कुछ और न कहे।">All charts below use global data unless a source line says otherwise.</p>
 
   <div class="charts-row">
     <div class="chart-box r">
@@ -312,8 +352,8 @@
       <canvas id="wildChart"></canvas>
     </div>
     <div class="chart-box r">
-      <h4 class="t-lang" data-en="GHG Emissions by Sector" data-hi="क्षेत्रवार ग्रीनहाउस गैस उत्सर्जन">GHG Emissions by Sector</h4>
-      <span class="csub t-lang" data-en="Share of global greenhouse gases | IPCC AR6" data-hi="वैश्विक ग्रीनहाउस गैसों में हिस्सा | IPCC AR6">Share of global greenhouse gases | IPCC AR6</span>
+      <h4 class="t-lang" data-en="Global GHG Emissions by Sector" data-hi="क्षेत्रवार वैश्विक ग्रीनहाउस गैस उत्सर्जन">Global GHG Emissions by Sector</h4>
+      <span class="csub t-lang" data-en="Share of global greenhouse gases | IPCC AR6 | worldwide scope" data-hi="वैश्विक ग्रीनहाउस गैसों में हिस्सा | IPCC AR6 | दुनिया भर का दायरा">Share of global greenhouse gases | IPCC AR6 | worldwide scope</span>
       <canvas id="sectorChart"></canvas>
     </div>
   </div>
@@ -328,7 +368,7 @@
           data-hi="रुकें।<br>सोचें।<br>फिर <span class='red'>कार्य करें।</span>">
         STOP.<br>THINK.<br>THEN <span class="red">ACT.</span>
       </h2>
-      <p class="action-lead t-lang" 
+      <p class="action-lead action-lead--big t-lang" 
          data-en="Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you vote, what you eat, where your money goes, and what you demand from the institutions that serve you."
          data-hi="जागरूकता कार्रवाई नहीं है। इस पेज को साझा करना कार्रवाई नहीं है। यह पेज कार्रवाई नहीं है। कार्रवाई यह है कि आप कैसे वोट देते हैं, आप क्या खाते हैं, आपका पैसा कहाँ जाता है।">
         Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you vote, what you eat, where your money goes, and what you demand from the institutions that serve you.
@@ -380,14 +420,15 @@
 
 <footer>
   <div class="f-brands">
-    <span class="f-brand">EARTH IS DYING</span>
-    <span class="f-brand-hi">पृथ्वी मर रही है</span>
+    <button class="f-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH IS DYING</button>
   </div>
   <div class="f-meta">
     <p class="f-copy t-lang" data-en="A statement for World Environment Day 2026." data-hi="विश्व पर्यावरण दिवस 2026 के लिए एक बयान।">A statement for World Environment Day 2026.</p>
     <p class="f-credit">Designed and developed by <a href="https://gurjeet.dev" target="_blank">Gurjeet Singh Virdde</a></p>
   </div>
 </footer>
+
+<button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
 <!-- JS -->
 <script src="script.js"></script>

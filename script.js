@@ -23,6 +23,8 @@ const dDeaths   = document.getElementById('d-deaths');
 const dPlastic  = document.getElementById('d-plastic');
 const bar       = document.getElementById('bar');
 const damageSection = document.getElementById('damage');
+const topLinks = document.querySelectorAll('.js-top-link');
+const backToTop = document.getElementById('back-to-top');
 
 // ── PERSONAL IMPACT LOGIC ─────────────────────────
 let personalData = {
@@ -72,23 +74,42 @@ acSlider.addEventListener('input', function() {
   updateImpact();
 });
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+topLinks.forEach(link => link.addEventListener('click', scrollToTop));
+if (backToTop) backToTop.addEventListener('click', scrollToTop);
+
+function updateBackToTopVisibility() {
+  if (!backToTop) return;
+  backToTop.classList.toggle('visible', window.scrollY > 320);
+}
+
+updateBackToTopVisibility();
+window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+
 // Language Toggle
 function toggleLang() {
   personalData.lang = personalData.lang === 'en' ? 'hi' : 'en';
-  document.body.dataset.lang = personalData.lang; // Global attribute for CSS
+  applyLanguage(personalData.lang);
+}
+
+function applyLanguage(lang) {
+  document.body.dataset.lang = lang;
   const btn = document.getElementById('lang-toggle-top');
-  if(btn) btn.textContent = personalData.lang === 'en' ? 'HINDI' : 'ENGLISH';
+  if (btn) btn.textContent = lang === 'en' ? 'HINDI' : 'ENGLISH';
 
   document.querySelectorAll('.t-lang').forEach(el => {
-    // We use innerHTML if there's a tag like <br> or <span> inside
-    if (el.dataset[personalData.lang].includes('<')) {
-      el.innerHTML = el.dataset[personalData.lang];
+    const value = el.dataset[lang];
+    if (!value) return;
+    if (value.includes('<')) {
+      el.innerHTML = value;
     } else {
-      el.textContent = el.dataset[personalData.lang];
+      el.textContent = value;
     }
   });
 
-  // Re-map timer refs because innerHTML might have destroyed them
   reMapRefs();
   updateImpact();
 }
@@ -119,7 +140,7 @@ function tick() {
   heroEl.textContent   = fmt(co2year);
   bTime.textContent    = fmtT(elapsed);
   bCO2.textContent     = fmt(co2page);
-  bForest.textContent  = fmt(forestPg);
+  if (bForest) bForest.textContent = fmt(forestPg);
 
   if (window.activeDTimer) window.activeDTimer.textContent = fmtT(elapsed);
   
@@ -182,70 +203,81 @@ const makeGrad = (ctx, color, alpha=0.25) => {
   return g;
 };
 
-// CO2
-new Chart(document.getElementById('co2Chart'),{
-  type:'line',
-  data:{
-    labels:['1960','1965','1970','1975','1980','1985','1990','1995','2000','2005','2010','2015','2020','2024'],
-    datasets:[{
-      data:[9.4,11.1,14.5,16.5,19.2,19.8,22.7,23.5,25.6,29.2,33.1,35.4,34.8,37.8],
-      borderColor:'#FF1500',
-      backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(255,21,0,0.3)');g.addColorStop(1,'rgba(255,21,0,0)');return g; },
-      borderWidth:2.5, fill:true, tension:0.4,
-      pointBackgroundColor:'#FF1500', pointRadius:3, pointHoverRadius:6,
-    }]
-  },
-  options: base()
-});
+if (window.Chart) {
+  const co2Canvas = document.getElementById('co2Chart');
+  const tempCanvas = document.getElementById('tempChart');
+  const wildCanvas = document.getElementById('wildChart');
+  const sectorCanvas = document.getElementById('sectorChart');
 
-// Temp
-new Chart(document.getElementById('tempChart'),{
-  type:'line',
-  data:{
-    labels:['1880','1900','1920','1940','1960','1980','2000','2010','2015','2018','2020','2022','2024'],
-    datasets:[{
-      data:[-0.16,-0.08,-0.27,-0.02,0.03,0.26,0.42,0.72,0.87,0.83,0.98,1.11,1.35],
-      borderColor:'#ffb300',
-      backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(255,179,0,0.25)');g.addColorStop(1,'rgba(255,179,0,0)');return g; },
-      borderWidth:2.5, fill:true, tension:0.4,
-      pointBackgroundColor:'#ffb300', pointRadius:3, pointHoverRadius:6,
-    }]
-  },
-  options: base()
-});
-
-// Wildlife
-new Chart(document.getElementById('wildChart'),{
-  type:'line',
-  data:{
-    labels:['1970','1975','1980','1985','1990','1995','2000','2005','2010','2015','2018','2020'],
-    datasets:[{
-      data:[100,92,85,79,72,65,58,51,45,38,32,27],
-      borderColor:'#C8FF00',
-      backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(200,255,0,0.18)');g.addColorStop(1,'rgba(200,255,0,0)');return g; },
-      borderWidth:2.5, fill:true, tension:0.4,
-      pointBackgroundColor:'#C8FF00', pointRadius:3, pointHoverRadius:6,
-    }]
-  },
-  options: base()
-});
-
-// Sector donut
-new Chart(document.getElementById('sectorChart'),{
-  type:'doughnut',
-  data:{
-    labels:['Energy','Transport','Industry','Agriculture','Buildings','Waste','Other'],
-    datasets:[{
-      data:[30,13.7,12.7,11.7,6.6,3.4,21.9],
-      backgroundColor:['#FF1500','#ffb300','#00C8FF','#22c55e','#a855f7','#f97316','#222'],
-      borderColor:'#060606', borderWidth:3, hoverOffset:8,
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:true, aspectRatio:1.6,
-    plugins:{
-      legend:{display:true,position:'right',labels:{color:'rgba(240,237,232,0.4)',font:{family:'Space Mono',size:9},boxWidth:10,padding:14}},
-      tooltip:{...ttBase, callbacks:{label:c=>` ${c.parsed}%`}}
-    }
+  if (co2Canvas) {
+    new Chart(co2Canvas,{
+      type:'line',
+      data:{
+        labels:['1960','1965','1970','1975','1980','1985','1990','1995','2000','2005','2010','2015','2020','2024'],
+        datasets:[{
+          data:[9.4,11.1,14.5,16.5,19.2,19.8,22.7,23.5,25.6,29.2,33.1,35.4,34.8,37.8],
+          borderColor:'#FF1500',
+          backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(255,21,0,0.3)');g.addColorStop(1,'rgba(255,21,0,0)');return g; },
+          borderWidth:2.5, fill:true, tension:0.4,
+          pointBackgroundColor:'#FF1500', pointRadius:3, pointHoverRadius:6,
+        }]
+      },
+      options: base()
+    });
   }
-});
+
+  if (tempCanvas) {
+    new Chart(tempCanvas,{
+      type:'line',
+      data:{
+        labels:['1880','1900','1920','1940','1960','1980','2000','2010','2015','2018','2020','2022','2024'],
+        datasets:[{
+          data:[-0.16,-0.08,-0.27,-0.02,0.03,0.26,0.42,0.72,0.87,0.83,0.98,1.11,1.35],
+          borderColor:'#ffb300',
+          backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(255,179,0,0.25)');g.addColorStop(1,'rgba(255,179,0,0)');return g; },
+          borderWidth:2.5, fill:true, tension:0.4,
+          pointBackgroundColor:'#ffb300', pointRadius:3, pointHoverRadius:6,
+        }]
+      },
+      options: base()
+    });
+  }
+
+  if (wildCanvas) {
+    new Chart(wildCanvas,{
+      type:'line',
+      data:{
+        labels:['1970','1975','1980','1985','1990','1995','2000','2005','2010','2015','2018','2020'],
+        datasets:[{
+          data:[100,92,85,79,72,65,58,51,45,38,32,27],
+          borderColor:'#C8FF00',
+          backgroundColor: ctx => { const g=ctx.chart.ctx.createLinearGradient(0,0,0,230);g.addColorStop(0,'rgba(200,255,0,0.18)');g.addColorStop(1,'rgba(200,255,0,0)');return g; },
+          borderWidth:2.5, fill:true, tension:0.4,
+          pointBackgroundColor:'#C8FF00', pointRadius:3, pointHoverRadius:6,
+        }]
+      },
+      options: base()
+    });
+  }
+
+  if (sectorCanvas) {
+    new Chart(sectorCanvas,{
+      type:'doughnut',
+      data:{
+        labels:['Energy','Transport','Industry','Agriculture','Buildings','Waste','Other'],
+        datasets:[{
+          data:[30,13.7,12.7,11.7,6.6,3.4,21.9],
+          backgroundColor:['#FF1500','#ffb300','#00C8FF','#22c55e','#a855f7','#f97316','#222'],
+          borderColor:'#060606', borderWidth:3, hoverOffset:8,
+        }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:true, aspectRatio:1.6,
+        plugins:{
+          legend:{display:true,position:'right',labels:{color:'rgba(240,237,232,0.4)',font:{family:'Space Mono',size:9},boxWidth:10,padding:14}},
+          tooltip:{...ttBase, callbacks:{label:c=>` ${c.parsed}%`}}
+        }
+      }
+    });
+  }
+}
