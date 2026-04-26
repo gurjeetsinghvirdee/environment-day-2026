@@ -1211,6 +1211,25 @@ footer::before {
   width: 100%;
   max-width: 800px;
 }
+.f-data {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(240, 237, 232, 0.5);
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.f-data:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(240, 237, 232, 0.8);
+  border-color: rgba(255, 255, 255, 0.12);
+}
 .f-copy {
   display: inline-block;
   margin: 1.5rem auto;
@@ -1763,6 +1782,16 @@ input[type="range"]::-webkit-slider-thumb {
     text-align: center;
     align-items: center;
   }
+
+  .f-copy {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .f-data {
+    font-size: 0.55rem;
+    letter-spacing: 0.05em;
+  }
   
   [data-lang="hi"] p.t-lang {
     font-size: 1.5rem;
@@ -1774,7 +1803,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
   
   [data-lang="hi"] .f-copy {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
   }
 
   .exit-src {
