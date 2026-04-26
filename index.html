@@ -1,437 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Earth Is Dying - World Environment Day 2026</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Earth Is Dying - World Environment Day 2026</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
 
-<!-- Chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
-<!-- CSS -->
-<link rel="stylesheet" href="styles.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body data-lang="en">
 
-<!-- ╔══ ACCUSATION BAR ══╗ -->
-<div id="bar">
-  <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH IS DYING</button>
-  <div class="bar-left">
-    <span class="t-lang" data-en="TIME ON PAGE:" data-hi="पेज पर समय:">TIME ON PAGE:</span> <b id="b-time">00:00</b>
+  <!-- ╔══ ACCUSATION BAR ══╗ -->
+  <div id="bar">
+    <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH
+      IS DYING</button>
+    <div class="bar-left">
+      <span class="t-lang" data-en="TIME ON PAGE:" data-hi="पेज पर समय:">TIME ON PAGE:</span> <b id="b-time">00:00</b>
+    </div>
+    <div class="bar-right">
+      <span><span class="t-lang" data-en="CO₂ ADDED:" data-hi="CO₂ वृद्धि:">CO₂ ADDED:</span> <b id="b-co2">0</b> <span
+          class="t-lang" data-en="TONS" data-hi="टन">TONS</span></span>
+      <button id="lang-toggle-top" onclick="toggleLang()">HINDI</button>
+    </div>
   </div>
-  <div class="bar-right">
-    <span><span class="t-lang" data-en="CO₂ ADDED:" data-hi="CO₂ वृद्धि:">CO₂ ADDED:</span> <b id="b-co2">0</b> <span class="t-lang" data-en="TONS" data-hi="टन">TONS</span></span>
-    <button id="lang-toggle-top" onclick="toggleLang()">HINDI</button>
-  </div>
-</div>
 
-<!-- ╔══ HERO ══╗ -->
-<section id="hero">
-  <div class="live-badge">
-    <div class="live-dot"></div>
-    <span class="t-lang" data-en="LIVE | TONS OF CO₂ EMITTED IN 2026" data-hi="लाइव | 2026 में उत्सर्जित CO₂ का टन">LIVE | TONS OF CO₂ EMITTED IN 2026</span>
-  </div>
-  <div class="hero-counter" id="hero-co2">Loading...</div>
-  <div class="hero-rule"></div>
-  <div class="hero-foot">
-    <p class="hero-context t-lang" 
-       data-en="This number didn't pause while you were eating. It didn't sleep when you did. It climbed during every meeting, every commute, every minute of every day | and it is climbing right now, as you read this sentence. We are almost out of budget to absorb it." 
-       data-hi="यह संख्या आपके खाना खाते समय नहीं रुकी। जब आप सो रहे थे तब भी यह नहीं रुकी। यह हर मीटिंग, हर यात्रा, दिन के हर मिनट में बढ़ती रही | और जैसे आप यह पढ़ रहे हैं, यह अब भी बढ़ रही है। हमारे पास इसे सोखने के लिए समय और संसाधन खत्म हो रहे हैं।">
-      This number didn't pause while you were eating. It didn't sleep when you did.
-      It climbed during every meeting, every commute, every minute of every day |
-      and it is climbing right now, as you read this sentence.
-      We are almost out of budget to absorb it.
+  <!-- ╔══ HERO ══╗ -->
+  <section id="hero">
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      <span class="t-lang" data-en="LIVE | TONS OF CO₂ EMITTED IN 2026"
+        data-hi="लाइव | 2026 में उत्सर्जित CO₂ का टन">LIVE | TONS OF CO₂ EMITTED IN 2026</span>
+    </div>
+    <div class="hero-counter" id="hero-co2">Loading...</div>
+    <div class="hero-rule"></div>
+    <div class="hero-foot">
+      <p class="hero-context t-lang"
+        data-en="This number didn't pause while you were eating. It didn't sleep when you did. It climbed during every meeting, every commute, every minute of every day | and it is climbing right now, as you read this sentence. We are almost out of budget to absorb it."
+        data-hi="यह संख्या आपके खाना खाते समय नहीं रुकी। जब आप सो रहे थे तब भी यह नहीं रुकी। यह हर मीटिंग, हर यात्रा, दिन के हर मिनट में बढ़ती रही | और जैसे आप यह पढ़ रहे हैं, यह अब भी बढ़ रही है। हमारे पास इसे सोखने के लिए समय और संसाधन खत्म हो रहे हैं।">
+        This number didn't pause while you were eating. It didn't sleep when you did.
+        It climbed during every meeting, every commute, every minute of every day |
+        and it is climbing right now, as you read this sentence.
+        We are almost out of budget to absorb it.
+      </p>
+      <div class="hero-aside">
+        <span class="big">1.5°C</span>
+        <p class="t-lang"
+          data-en="The ceiling beyond which climate becomes catastrophic per the IPCC. At current trajectory, we breach it before 2035. Not 2100. 2035."
+          data-hi="IPCC के अनुसार वह सीमा जिसके बाद जलवायु विनाशकारी हो जाती है। वर्तमान गति से, हम इसे 2035 से पहले पार कर लेंगे। 2100 नहीं, 2035।">
+          The ceiling beyond which climate becomes catastrophic per the IPCC. At current trajectory, we breach it before
+          2035. Not 2100. 2035.
+        </p>
+      </div>
+    </div>
+    <div class="scroll-hint t-lang" data-en="SCROLL TO FACE THE DATA ↓" data-hi="डेटा देखने के लिए स्क्रॉल करें ↓">
+      SCROLL TO FACE THE DATA ↓</div>
+  </section>
+
+  <!-- ╔══ DAMAGE COUNTER ══╗ -->
+  <section id="damage">
+    <p class="damage-tag t-lang" data-en="// WHILE YOU WERE READING" data-hi="// जब आप पढ़ रहे थे">// WHILE YOU WERE
+      READING</p>
+
+    <div class="damage-headline t-lang" data-en="YOU'VE BEEN HERE<br>FOR <span class='hollow' id='d-timer'>00:00</span>"
+      data-hi="आप यहाँ <br> <span class='hollow' id='d-timer-hi'>00:00</span> से हैं">
+      YOU'VE BEEN HERE<br>FOR <span class="hollow" id="d-timer">00:00</span>
+    </div>
+    <p class="damage-sub t-lang" data-en="In that time, Earth paid the bill. Here is the receipt."
+      data-hi="उस समय में, धरती ने कीमत चुकाई। यह उसकी रसीद है।">In that time, Earth paid the bill. Here is the receipt.
     </p>
-    <div class="hero-aside">
-      <span class="big">1.5°C</span>
-      <p class="t-lang" 
-         data-en="The ceiling beyond which climate becomes catastrophic per the IPCC. At current trajectory, we breach it before 2035. Not 2100. 2035."
-         data-hi="IPCC के अनुसार वह सीमा जिसके बाद जलवायु विनाशकारी हो जाती है। वर्तमान गति से, हम इसे 2035 से पहले पार कर लेंगे। 2100 नहीं, 2035।">
-        The ceiling beyond which climate becomes catastrophic per the IPCC. At current trajectory, we breach it before 2035. Not 2100. 2035.
-      </p>
-    </div>
-  </div>
-  <div class="scroll-hint t-lang" data-en="SCROLL TO FACE THE DATA ↓" data-hi="डेटा देखने के लिए स्क्रॉल करें ↓">SCROLL TO FACE THE DATA ↓</div>
-</section>
 
-<!-- ╔══ DAMAGE COUNTER ══╗ -->
-<section id="damage">
-  <p class="damage-tag t-lang" data-en="// WHILE YOU WERE READING" data-hi="// जब आप पढ़ रहे थे">// WHILE YOU WERE READING</p>
-
-  <div class="damage-headline t-lang" 
-       data-en="YOU'VE BEEN HERE<br>FOR <span class='hollow' id='d-timer'>00:00</span>" 
-       data-hi="आप यहाँ <br> <span class='hollow' id='d-timer-hi'>00:00</span> से हैं">
-    YOU'VE BEEN HERE<br>FOR <span class="hollow" id="d-timer">00:00</span>
-  </div>
-  <p class="damage-sub t-lang" data-en="In that time, Earth paid the bill. Here is the receipt." data-hi="उस समय में, धरती ने कीमत चुकाई। यह उसकी रसीद है।">In that time, Earth paid the bill. Here is the receipt.</p>
-
-  <div class="damage-grid">
-    <div class="damage-card">
-      <span class="d-unit t-lang" data-en="TONS OF CO₂" data-hi="टन CO₂">TONS OF CO₂</span>
-      <span class="d-num" id="d-co2">0</span>
-      <span class="d-label t-lang" data-en="Released into the atmosphere since you arrived" data-hi="आपके आने के बाद से वातावरण में छोड़ी गई">Released into the atmosphere since you arrived</span>
-    </div>
-    <div class="damage-card">
-      <span class="d-unit t-lang" data-en="SQUARE METRES OF FOREST" data-hi="वर्ग मीटर जंगल">SQUARE METRES OF FOREST</span>
-      <span class="d-num" id="d-forest">0</span>
-      <span class="d-label t-lang" data-en="Destroyed while you read this page" data-hi="जब आप यह पेज पढ़ रहे थे तब नष्ट हुआ">Destroyed while you read this page</span>
-    </div>
-    <div class="damage-card">
-      <span class="d-unit t-lang" data-en="PEOPLE KILLED" data-hi="लोग मारे गए">PEOPLE KILLED</span>
-      <span class="d-num" id="d-deaths">0.00</span>
-      <span class="d-label t-lang" data-en="By pollution in this exact timeframe" data-hi="इस सटीक समय सीमा में प्रदूषण द्वारा">By pollution in this exact timeframe</span>
-    </div>
-    <div class="damage-card">
-      <span class="d-unit t-lang" data-en="KG OF PLASTIC PRODUCED" data-hi="किलो प्लास्टिक उत्पादन">KG OF PLASTIC PRODUCED</span>
-      <span class="d-num" id="d-plastic">0</span>
-      <span class="d-label t-lang" data-en="Less than 10% of it will ever be recycled" data-hi="इसका 10% से भी कम कभी पुनर्चक्रित किया जाएगा">Less than 10% of it will ever be recycled</span>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══ PERSONAL IMPACT ══╗ -->
-<section id="personal-impact">
-  <!-- Lang toggle moved to top bar -->
-  <div class="impact-container r">
-    <div class="impact-inputs">
-      <div class="impact-header">
-        <h2 class="t-lang" data-en="IT'S PERSONAL." data-hi="यह व्यक्तिगत है।">IT'S PERSONAL.</h2>
-        <p class="t-lang" data-en="Stop looking at 'humanity'. Look at you." data-hi="मानवता को देखना बंद करें। खुद को देखें।">Stop looking at 'humanity'. Look at you.</p>
+    <div class="damage-grid">
+      <div class="damage-card">
+        <span class="d-unit t-lang" data-en="TONS OF CO₂" data-hi="टन CO₂">TONS OF CO₂</span>
+        <span class="d-num" id="d-co2">0</span>
+        <span class="d-label t-lang" data-en="Released into the atmosphere since you arrived"
+          data-hi="आपके आने के बाद से वातावरण में छोड़ी गई">Released into the atmosphere since you arrived</span>
       </div>
+      <div class="damage-card">
+        <span class="d-unit t-lang" data-en="SQUARE METRES OF FOREST" data-hi="वर्ग मीटर जंगल">SQUARE METRES OF
+          FOREST</span>
+        <span class="d-num" id="d-forest">0</span>
+        <span class="d-label t-lang" data-en="Destroyed while you read this page"
+          data-hi="जब आप यह पेज पढ़ रहे थे तब नष्ट हुआ">Destroyed while you read this page</span>
+      </div>
+      <div class="damage-card">
+        <span class="d-unit t-lang" data-en="PEOPLE KILLED" data-hi="लोग मारे गए">PEOPLE KILLED</span>
+        <span class="d-num" id="d-deaths">0.00</span>
+        <span class="d-label t-lang" data-en="By pollution in this exact timeframe"
+          data-hi="इस सटीक समय सीमा में प्रदूषण द्वारा">By pollution in this exact timeframe</span>
+      </div>
+      <div class="damage-card">
+        <span class="d-unit t-lang" data-en="KG OF PLASTIC PRODUCED" data-hi="किलो प्लास्टिक उत्पादन">KG OF PLASTIC
+          PRODUCED</span>
+        <span class="d-num" id="d-plastic">0</span>
+        <span class="d-label t-lang" data-en="Less than 10% of it will ever be recycled"
+          data-hi="इसका 10% से भी कम कभी पुनर्चक्रित किया जाएगा">Less than 10% of it will ever be recycled</span>
+      </div>
+    </div>
+  </section>
 
-      <div class="input-group">
-        <label class="t-lang" data-en="DAILY COMMUTE?" data-hi="दैनिक यात्रा?">DAILY COMMUTE?</label>
-        <div class="toggle-group" id="commute-btns">
-          <button class="active t-lang" data-val="none" data-en="NONE" data-hi="कोई नहीं">NONE</button>
-          <button class="t-lang" data-val="bike" data-en="BIKE" data-hi="बाइक">BIKE</button>
-          <button class="t-lang" data-val="public" data-en="PUBLIC" data-hi="पब्लिक">PUBLIC</button>
-          <button class="t-lang" data-val="car" data-en="CAR" data-hi="कार">कार</button>
+  <!-- ╔══ PERSONAL IMPACT ══╗ -->
+  <section id="personal-impact">
+    <!-- Lang toggle moved to top bar -->
+    <div class="impact-container r">
+      <div class="impact-inputs">
+        <div class="impact-header">
+          <h2 class="t-lang" data-en="IT'S PERSONAL." data-hi="यह व्यक्तिगत है।">IT'S PERSONAL.</h2>
+          <p class="t-lang" data-en="Stop looking at 'humanity'. Look at you."
+            data-hi="मानवता को देखना बंद करें। खुद को देखें।">Stop looking at 'humanity'. Look at you.</p>
         </div>
-      </div>
 
-      <div class="input-group">
-        <label class="t-lang" data-en="AC USAGE (HOURS)?" data-hi="एसी का उपयोग (घंटे)?">AC USAGE (HOURS)?</label>
-        <div class="slider-wrap">
-          <input type="range" id="ac-slider" min="0" max="24" value="2" step="1">
-          <span id="ac-val">2h</span>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <label class="t-lang" data-en="DIET?" data-hi="आहार?">DIET?</label>
-        <div class="toggle-group" id="diet-btns">
-          <button class="active t-lang" data-val="veg" data-en="VEG" data-hi="शाकाहारी">VEG</button>
-          <button class="t-lang" data-val="mixed" data-en="MIXED" data-hi="मिश्रित">MIXED</button>
-          <button class="t-lang" data-val="heavy" data-en="HEAVY" data-hi="मांसाहारी">HEAVY</button>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <label class="t-lang" data-en="ELECTRICITY?" data-hi="बिजली?">ELECTRICITY?</label>
-        <div class="toggle-group" id="electric-btns">
-          <button class="t-lang" data-val="light" data-en="LIGHT" data-hi="कम">LIGHT</button>
-          <button class="active t-lang" data-val="medium" data-en="MEDIUM" data-hi="मध्यम">MEDIUM</button>
-          <button class="t-lang" data-val="heavy" data-en="HEAVY" data-hi="अधिक">HEAVY</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="impact-display">
-      <div class="result-block main-result">
-        <span class="res-label t-lang" data-en="YOUR ESTIMATED YEARLY DEBT" data-hi="आपका अनुमानित वार्षिक ऋण">YOUR ESTIMATED YEARLY DEBT</span>
-        <div class="res-value"><span id="yearly-co2">0</span> <small class="t-lang" data-en="KG CO₂" data-hi="किलो CO₂">KG CO₂</small></div>
-      </div>
-
-      <div class="result-block live-result">
-        <span class="res-label t-lang" data-en="EMITTED WHILE YOU WERE HERE" data-hi="जब आप यहाँ थे तब उत्सर्जन हुआ">EMITTED WHILE YOU WERE HERE</span>
-        <div class="res-value"><span id="personal-live-co2">0.00</span> <small class="t-lang" data-en="G CO₂" data-hi="ग्राम CO₂">G CO₂</small></div>
-      </div>
-
-      <div class="result-block meta-result">
-        <span class="res-label t-lang" data-en="EQUIVALENT TO" data-hi="इसके बराबर">EQUIVALENT TO</span>
-        <div class="meta-grid">
-          <div class="meta-item">
-            <span class="meta-val" id="eq-km">0</span>
-            <span class="meta-lab t-lang" data-en="KM DRIVEN" data-hi="किमी ड्राइविंग">KM DRIVEN</span>
+        <div class="input-group">
+          <label class="t-lang" data-en="DAILY COMMUTE?" data-hi="दैनिक यात्रा?">DAILY COMMUTE?</label>
+          <div class="toggle-group" id="commute-btns">
+            <button class="active t-lang" data-val="none" data-en="NONE" data-hi="कोई नहीं">NONE</button>
+            <button class="t-lang" data-val="bike" data-en="BIKE" data-hi="बाइक">BIKE</button>
+            <button class="t-lang" data-val="public" data-en="PUBLIC" data-hi="पब्लिक">PUBLIC</button>
+            <button class="t-lang" data-val="car" data-en="CAR" data-hi="कार">कार</button>
           </div>
-          <div class="meta-item">
-            <span class="meta-val" id="eq-fuel">0</span>
-            <span class="meta-lab t-lang" data-en="LITRES FUEL" data-hi="लीटर ईंधन">LITRES FUEL</span>
+        </div>
+
+        <div class="input-group">
+          <label class="t-lang" data-en="AC USAGE (HOURS)?" data-hi="एसी का उपयोग (घंटे)?">AC USAGE (HOURS)?</label>
+          <div class="slider-wrap">
+            <input type="range" id="ac-slider" min="0" max="24" value="2" step="1">
+            <span id="ac-val">2h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="t-lang" data-en="DIET?" data-hi="आहार?">DIET?</label>
+          <div class="toggle-group" id="diet-btns">
+            <button class="active t-lang" data-val="veg" data-en="VEG" data-hi="शाकाहारी">VEG</button>
+            <button class="t-lang" data-val="mixed" data-en="MIXED" data-hi="मिश्रित">MIXED</button>
+            <button class="t-lang" data-val="heavy" data-en="HEAVY" data-hi="मांसाहारी">HEAVY</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="t-lang" data-en="ELECTRICITY?" data-hi="बिजली?">ELECTRICITY?</label>
+          <div class="toggle-group" id="electric-btns">
+            <button class="t-lang" data-val="light" data-en="LIGHT" data-hi="कम">LIGHT</button>
+            <button class="active t-lang" data-val="medium" data-en="MEDIUM" data-hi="मध्यम">MEDIUM</button>
+            <button class="t-lang" data-val="heavy" data-en="HEAVY" data-hi="अधिक">HEAVY</button>
           </div>
         </div>
       </div>
 
-      <div class="impact-tone">
-        <p id="tone-msg" class="t-lang" data-en="This is your share." data-hi="ये आपका हिस्सा है।">This is your share.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ╔══ STAT ROWS ══╗ -->
-<section id="stats">
-  <div class="scope-banner t-lang" data-en="GLOBAL DATA ONLY | WORLDWIDE EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS. NOT INDIA-ONLY." data-hi="केवल वैश्विक डेटा | दुनिया भर के उत्सर्जन, आबादी, प्रदूषण और वन हानि। सिर्फ भारत नहीं।">GLOBAL DATA ONLY | WORLDWIDE EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS. NOT INDIA-ONLY.</div>
-
-  <div class="stat-row r">
-    <span class="stat-ghost">37.8</span>
-    <div class="stat-body">
-      <span class="stat-num" style="color:var(--red)">37.8 Gt</span>
-      <p class="stat-desc t-lang" 
-         data-en="CO₂ emitted globally in 2024. The highest annual total in recorded human history. We are not slowing down. We are accelerating."
-         data-hi="2024 में वैश्विक स्तर पर उत्सर्जित CO₂। मानव इतिहास में सबसे अधिक वार्षिक कुल। हम धीमे नहीं हो रहे हैं। हम तेज हो रहे हैं।">
-        CO₂ emitted globally in 2024. The highest annual total in recorded human history. We are not slowing down. We are accelerating.
-      </p>
-      <span class="stat-src">IEA Global Energy Review 2024</span>
-    </div>
-    <aside class="stat-side">
-      <div class="heat-card heat-card--red">
-        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
-        <div class="heat-pulse">
-          <span></span><span></span><span></span><span></span>
+      <div class="impact-display">
+        <div class="result-block main-result">
+          <span class="res-label t-lang" data-en="YOUR ESTIMATED YEARLY DEBT" data-hi="आपका अनुमानित वार्षिक ऋण">YOUR
+            ESTIMATED YEARLY DEBT</span>
+          <div class="res-value"><span id="yearly-co2">0</span> <small class="t-lang" data-en="KG CO₂"
+              data-hi="किलो CO₂">KG CO₂</small></div>
         </div>
-        <p class="heat-copy t-lang" data-en="Global CO₂, not India-only." data-hi="वैश्विक CO₂, सिर्फ भारत नहीं।">Global CO₂, not India-only.</p>
-      </div>
-    </aside>
-  </div>
 
-  <div class="stat-row r">
-    <span class="stat-ghost">73%</span>
-    <div class="stat-body">
-      <span class="stat-num" style="color:var(--acid)">73%</span>
-      <p class="stat-desc t-lang" 
-         data-en="Average decline in global vertebrate populations between 1970 and 2020. In a single human lifetime. We are living through the sixth mass extinction | it just moves too slowly for breaking news."
-         data-hi="1970 और 2020 के बीच वैश्विक कशेरुकी आबादी में औसत गिरावट। एक मानव जीवनकाल में। हम छठे सामूहिक विनाश के दौर से गुजर रहे हैं | यह सिर्फ खबर बनने के लिए बहुत धीमा है।">
-        Average decline in global vertebrate populations between 1970 and 2020. In a single human lifetime. We are living through the sixth mass extinction | it just moves too slowly for breaking news.
-      </p>
-      <span class="stat-src">WWF Living Planet Report 2024</span>
-    </div>
-    <aside class="stat-side">
-      <div class="heat-card heat-card--acid">
-        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
-        <div class="heat-pulse heat-pulse--wide">
-          <span></span><span></span><span></span><span></span><span></span>
+        <div class="result-block live-result">
+          <span class="res-label t-lang" data-en="EMITTED WHILE YOU WERE HERE"
+            data-hi="जब आप यहाँ थे तब उत्सर्जन हुआ">EMITTED WHILE YOU WERE HERE</span>
+          <div class="res-value"><span id="personal-live-co2">0.00</span> <small class="t-lang" data-en="G CO₂"
+              data-hi="ग्राम CO₂">G CO₂</small></div>
         </div>
-        <p class="heat-copy t-lang" data-en="Global wildlife decline, not a regional sample." data-hi="वैश्विक वन्यजीव गिरावट, कोई क्षेत्रीय नमूना नहीं।">Global wildlife decline, not a regional sample.</p>
-      </div>
-    </aside>
-  </div>
 
-  <div class="stat-row r">
-    <span class="stat-ghost">9M</span>
-    <div class="stat-body">
-      <span class="stat-num" style="color:var(--cyan)">9 Million</span>
-      <p class="stat-desc t-lang" 
-         data-en="People die every year from pollution. More than AIDS, tuberculosis, and malaria combined. This is not an environmental issue. This is an ongoing, preventable mass casualty event."
-         data-hi="हर साल प्रदूषण से 9 मिलियन लोग मरते हैं। एड्स, तपेदिक और मलेरिया के संयुक्त रूप से अधिक। यह एक पर्यावरणीय मुद्दा नहीं है। यह एक निरंतर, रोके जाने योग्य सामूहिक हताहत घटना है।">
-        People die every year from pollution. More than AIDS, tuberculosis, and malaria combined. This is not an environmental issue. This is an ongoing, preventable mass casualty event.
-      </p>
-      <span class="stat-src">Lancet Commission on Pollution & Health, 2022</span>
-    </div>
-    <aside class="stat-side">
-      <div class="heat-card heat-card--cyan">
-        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
-        <div class="heat-pulse heat-pulse--bars">
-          <span></span><span></span><span></span><span></span>
+        <div class="result-block meta-result">
+          <span class="res-label t-lang" data-en="EQUIVALENT TO" data-hi="इसके बराबर">EQUIVALENT TO</span>
+          <div class="meta-grid">
+            <div class="meta-item">
+              <span class="meta-val" id="eq-km">0</span>
+              <span class="meta-lab t-lang" data-en="KM DRIVEN" data-hi="किमी ड्राइविंग">KM DRIVEN</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-val" id="eq-fuel">0</span>
+              <span class="meta-lab t-lang" data-en="LITRES FUEL" data-hi="लीटर ईंधन">LITRES FUEL</span>
+            </div>
+          </div>
         </div>
-        <p class="heat-copy t-lang" data-en="Global pollution deaths every year." data-hi="हर साल वैश्विक प्रदूषण मौतें।">Global pollution deaths every year.</p>
-      </div>
-    </aside>
-  </div>
 
-  <div class="stat-row r">
-    <span class="stat-ghost">420M</span>
-    <div class="stat-body">
-      <span class="stat-num" style="color:var(--green2)">420M ha</span>
-      <p class="stat-desc t-lang" 
-         data-en="Forests eliminated between 1990 and 2020. Larger than the entire European Union. These are not just trees | they are carbon sinks, biodiversity banks, and the lungs of civilisation. We burn them for cattle and palm oil."
-         data-hi="1990 और 2020 के बीच नष्ट हुए जंगल। पूरे यूरोपीय संघ से बड़े। ये सिर्फ पेड़ नहीं हैं | ये कार्बन सिंक, जैव विविधता बैंक और सभ्यता के फेफड़े हैं। हम उन्हें मवेशियों और ताड़ के तेल के लिए जलाते हैं।">
-        Forests eliminated between 1990 and 2020. Larger than the entire European Union. These are not just trees | they are carbon sinks, biodiversity banks, and the lungs of civilisation. We burn them for cattle and palm oil.
-      </p>
-      <span class="stat-src">UN FAO Global Forest Resources Assessment</span>
-    </div>
-    <aside class="stat-side">
-      <div class="heat-card heat-card--green">
-        <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
-        <div class="heat-pulse heat-pulse--forest">
-          <span></span><span></span><span></span><span></span><span></span>
+        <div class="impact-tone">
+          <p id="tone-msg" class="t-lang" data-en="This is your share." data-hi="ये आपका हिस्सा है।">This is your share.
+          </p>
         </div>
-        <p class="heat-copy t-lang" data-en="Global forest loss, not India-only." data-hi="वैश्विक वन हानि, सिर्फ भारत नहीं।">Global forest loss, not India-only.</p>
       </div>
-    </aside>
-  </div>
+    </div>
+  </section>
 
-</section>
+  <!-- ╔══ STAT ROWS ══╗ -->
+  <section id="stats">
+    <div class="scope-banner t-lang"
+      data-en="GLOBAL DATA ONLY | WORLDWIDE EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS."
+      data-hi="केवल वैश्विक डेटा | दुनिया भर के उत्सर्जन, आबादी, प्रदूषण और वन हानि।">GLOBAL DATA ONLY | WORLDWIDE
+      EMISSIONS, POPULATION, POLLUTION, AND FOREST LOSS.</div>
 
-<!-- ╔══ CRISES ══╗ -->
-<section id="crises">
-  <span class="section-eyebrow red t-lang" data-en="Four Emergencies" data-hi="चार आपातस्थितियाँ">Four Emergencies</span>
-  <h2 class="section-h2 t-lang" 
-      data-en="FOUR WAYS<br><span class='hollow-black'>WE'RE FAILING IT.</span>"
+    <div class="stat-row r">
+      <span class="stat-ghost">37.8</span>
+      <div class="stat-body">
+        <span class="stat-num" style="color:var(--red)">37.8 Gt</span>
+        <p class="stat-desc t-lang"
+          data-en="CO₂ emitted globally in 2024. The highest annual total in recorded human history. We are not slowing down. We are accelerating."
+          data-hi="2024 में वैश्विक स्तर पर उत्सर्जित CO₂। मानव इतिहास में सबसे अधिक वार्षिक कुल। हम धीमे नहीं हो रहे हैं। हम तेज हो रहे हैं।">
+          CO₂ emitted globally in 2024. The highest annual total in recorded human history. We are not slowing down. We
+          are accelerating.
+        </p>
+        <span class="stat-src">IEA Global Energy Review 2024</span>
+      </div>
+      <aside class="stat-side">
+        <div class="heat-card heat-card--red">
+          <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+          <div class="heat-pulse">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <p class="heat-copy t-lang" data-en="Global CO₂ data." data-hi="वैश्विक CO₂ डेटा।">Global CO₂ data.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stat-row r">
+      <span class="stat-ghost">73%</span>
+      <div class="stat-body">
+        <span class="stat-num" style="color:var(--acid)">73%</span>
+        <p class="stat-desc t-lang"
+          data-en="Average decline in global vertebrate populations between 1970 and 2020. In a single human lifetime. We are living through the sixth mass extinction | it just moves too slowly for breaking news."
+          data-hi="1970 और 2020 के बीच वैश्विक कशेरुकी आबादी में औसत गिरावट। एक मानव जीवनकाल में। हम छठे सामूहिक विनाश के दौर से गुजर रहे हैं | यह सिर्फ खबर बनने के लिए बहुत धीमा है।">
+          Average decline in global vertebrate populations between 1970 and 2020. In a single human lifetime. We are
+          living through the sixth mass extinction | it just moves too slowly for breaking news.
+        </p>
+        <span class="stat-src">WWF Living Planet Report 2024</span>
+      </div>
+      <aside class="stat-side">
+        <div class="heat-card heat-card--acid">
+          <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+          <div class="heat-pulse heat-pulse--wide">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="heat-copy t-lang" data-en="Global wildlife decline, not a regional sample."
+            data-hi="वैश्विक वन्यजीव गिरावट, कोई क्षेत्रीय नमूना नहीं।">Global wildlife decline, not a regional sample.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stat-row r">
+      <span class="stat-ghost">9M</span>
+      <div class="stat-body">
+        <span class="stat-num" style="color:var(--cyan)">9 Million</span>
+        <p class="stat-desc t-lang"
+          data-en="People die every year from pollution. More than AIDS, tuberculosis, and malaria combined. This is not an environmental issue. This is an ongoing, preventable mass casualty event."
+          data-hi="हर साल प्रदूषण से 9 मिलियन लोग मरते हैं। एड्स, तपेदिक और मलेरिया के संयुक्त रूप से अधिक। यह एक पर्यावरणीय मुद्दा नहीं है। यह एक निरंतर, रोके जाने योग्य सामूहिक हताहत घटना है।">
+          People die every year from pollution. More than AIDS, tuberculosis, and malaria combined. This is not an
+          environmental issue. This is an ongoing, preventable mass casualty event.
+        </p>
+        <span class="stat-src">Lancet Commission on Pollution & Health, 2022</span>
+      </div>
+      <aside class="stat-side">
+        <div class="heat-card heat-card--cyan">
+          <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+          <div class="heat-pulse heat-pulse--bars">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <p class="heat-copy t-lang" data-en="Global pollution deaths every year."
+            data-hi="हर साल वैश्विक प्रदूषण मौतें।">Global pollution deaths every year.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stat-row r">
+      <span class="stat-ghost">420M</span>
+      <div class="stat-body">
+        <span class="stat-num" style="color:var(--green2)">420M ha</span>
+        <p class="stat-desc t-lang"
+          data-en="Forests eliminated between 1990 and 2020. Larger than the entire European Union. These are not just trees | they are carbon sinks, biodiversity banks, and the lungs of civilisation. We burn them for cattle and palm oil."
+          data-hi="1990 और 2020 के बीच नष्ट हुए जंगल। पूरे यूरोपीय संघ से बड़े। ये सिर्फ पेड़ नहीं हैं | ये कार्बन सिंक, जैव विविधता बैंक और सभ्यता के फेफड़े हैं। हम उन्हें मवेशियों और ताड़ के तेल के लिए जलाते हैं।">
+          Forests eliminated between 1990 and 2020. Larger than the entire European Union. These are not just trees |
+          they are carbon sinks, biodiversity banks, and the lungs of civilisation. We burn them for cattle and palm
+          oil.
+        </p>
+        <span class="stat-src">UN FAO Global Forest Resources Assessment</span>
+      </div>
+      <aside class="stat-side">
+        <div class="heat-card heat-card--green">
+          <span class="heat-kicker t-lang" data-en="WORLDWIDE" data-hi="वैश्विक">WORLDWIDE</span>
+          <div class="heat-pulse heat-pulse--forest">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="heat-copy t-lang" data-en="Global forest loss data." data-hi="वैश्विक वन हानि डेटा।">Global forest
+            loss data.</p>
+        </div>
+      </aside>
+    </div>
+
+  </section>
+
+  <!-- ╔══ CRISES ══╗ -->
+  <section id="crises">
+    <span class="section-eyebrow red t-lang" data-en="Four Emergencies" data-hi="चार आपातस्थितियाँ">Four
+      Emergencies</span>
+    <h2 class="section-h2 t-lang" data-en="FOUR WAYS<br><span class='hollow-black'>WE'RE FAILING IT.</span>"
       data-hi="चार तरीके जिनसे<br><span class='hollow-black'>हम इसे विफल कर रहे हैं।</span>">
-    FOUR WAYS<br><span class="hollow-black">WE'RE FAILING IT.</span>
-  </h2>
+      FOUR WAYS<br><span class="hollow-black">WE'RE FAILING IT.</span>
+    </h2>
 
-  <div class="crisis-grid">
+    <div class="crisis-grid">
 
-    <div class="crisis-card r" style="--accent:var(--red)">
-      <span class="crisis-big">+1.35°C</span>
-      <h3 class="t-lang" data-en="🔥 Climate Collapse" data-hi="🔥 जलवायु पतन">🔥 Climate Collapse</h3>
-      <p class="t-lang" 
-         data-en="Atmospheric CO₂ sits at 421ppm | a level not seen in 3 million years. The warming already locked in will cause sea level rise, mass displacement, and extreme weather that makes today's disasters look moderate. The science leaves no room for optimism without immediate, drastic change."
-         data-hi="वायुमंडलीय CO₂ 421ppm पर है | ऐसा स्तर जो 3 मिलियन वर्षों में नहीं देखा गया। पहले से ही लॉक हो चुकी गर्मी समुद्र के स्तर में वृद्धि, बड़े पैमाने पर विस्थापन और चरम मौसम का कारण बनेगी जो आज की आपदाओं को सामान्य बना देगा।">
-        Atmospheric CO₂ sits at 421ppm | a level not seen in 3 million years. The warming already locked in will cause sea level rise, mass displacement, and extreme weather that makes today's disasters look moderate. The science leaves no room for optimism without immediate, drastic change.
-      </p>
+      <div class="crisis-card r" style="--accent:var(--red)">
+        <span class="crisis-big">+1.35°C</span>
+        <h3 class="t-lang" data-en="🔥 Climate Collapse" data-hi="🔥 जलवायु पतन">🔥 Climate Collapse</h3>
+        <p class="t-lang"
+          data-en="Atmospheric CO₂ sits at 421ppm | a level not seen in 3 million years. The warming already locked in will cause sea level rise, mass displacement, and extreme weather that makes today's disasters look moderate. The science leaves no room for optimism without immediate, drastic change."
+          data-hi="वायुमंडलीय CO₂ 421ppm पर है | ऐसा स्तर जो 3 मिलियन वर्षों में नहीं देखा गया। पहले से ही लॉक हो चुकी गर्मी समुद्र के स्तर में वृद्धि, बड़े पैमाने पर विस्थापन और चरम मौसम का कारण बनेगी जो आज की आपदाओं को सामान्य बना देगा।">
+          Atmospheric CO₂ sits at 421ppm | a level not seen in 3 million years. The warming already locked in will cause
+          sea level rise, mass displacement, and extreme weather that makes today's disasters look moderate. The science
+          leaves no room for optimism without immediate, drastic change.
+        </p>
+      </div>
+
+      <div class="crisis-card r" style="--accent:var(--green2)">
+        <span class="crisis-big">4.7M ha/yr</span>
+        <h3 class="t-lang" data-en="🌳 Deforestation" data-hi="🌳 वनों की कटाई">🌳 Deforestation</h3>
+        <p class="t-lang"
+          data-en="Every year we destroy 4.7 million hectares of forest | ecosystems that took thousands of years to evolve. When these forests go, the carbon stored within them goes with them, accelerating the very crisis we cannot afford to worsen. And we keep going."
+          data-hi="हर साल हम 4.7 मिलियन हेक्टेयर जंगल नष्ट करते हैं | ऐसे पारिस्थितिकी तंत्र जिन्हें विकसित होने में हजारों साल लगे। जब ये जंगल चले जाते हैं, तो उनमें जमा कार्बन उनके साथ चला जाता है, जो संकट को और तेज करता है।">
+          Every year we destroy 4.7 million hectares of forest | ecosystems that took thousands of years to evolve. When
+          these forests go, the carbon stored within them goes with them, accelerating the very crisis we cannot afford
+          to worsen. And we keep going.
+        </p>
+      </div>
+
+      <div class="crisis-card r" style="--accent:var(--amber)">
+        <span class="crisis-big">73% Lost</span>
+        <h3 class="t-lang" data-en="🦋 Biodiversity Collapse" data-hi="🦋 जैव विविधता पतन">🦋 Biodiversity Collapse</h3>
+        <p class="t-lang"
+          data-en="The sixth mass extinction is not a future event. It is happening in real time. We have eliminated 73% of monitored vertebrate populations since 1970. The collapse of ecosystems does not stay contained to wildlife. When the food chain breaks, we break with it."
+          data-hi="छठा सामूहिक विनाश कोई भविष्य की घटना नहीं है। यह वास्तविक समय में हो रहा है। हमने 1970 के बाद से 73% कशेरुकी आबादी को खत्म कर दिया है। पारिस्थितिकी तंत्र का पतन सिर्फ वन्यजीवों तक सीमित नहीं रहता।">
+          The sixth mass extinction is not a future event. It is happening in real time. We have eliminated 73% of
+          monitored vertebrate populations since 1970. The collapse of ecosystems does not stay contained to wildlife.
+          When the food chain breaks, we break with it.
+        </p>
+      </div>
+
+      <div class="crisis-card r" style="--accent:var(--cyan)">
+        <span class="crisis-big">9M Dead/yr</span>
+        <h3 class="t-lang" data-en="☁️ Pollution Pandemic" data-hi="☁️ प्रदूषण महामारी">☁️ Pollution Pandemic</h3>
+        <p class="t-lang"
+          data-en="6.5M die from outdoor air alone. 1.8M from contaminated water. 1.7 billion humans drink faecally polluted water today. We produce 460M tonnes of plastic per year and recycle less than 10%. The rest accumulates | in soil, rivers, blood, lungs. In you."
+          data-hi="केवल बाहरी हवा से 6.5M मरते हैं। दूषित पानी से 1.8M। आज 1.7 बिलियन लोग मल प्रदूषित पानी पीते हैं। हम प्रति वर्ष 460M टन प्लास्टिक का उत्पादन करते हैं और 10% से भी कम रीसायकल करते हैं।">
+          6.5M die from outdoor air alone. 1.8M from contaminated water. 1.7 billion humans drink faecally polluted
+          water today. We produce 460M tonnes of plastic per year and recycle less than 10%. The rest accumulates | in
+          soil, rivers, blood, lungs. In you.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="crisis-card r" style="--accent:var(--green2)">
-      <span class="crisis-big">4.7M ha/yr</span>
-      <h3 class="t-lang" data-en="🌳 Deforestation" data-hi="🌳 वनों की कटाई">🌳 Deforestation</h3>
-      <p class="t-lang" 
-         data-en="Every year we destroy 4.7 million hectares of forest | ecosystems that took thousands of years to evolve. When these forests go, the carbon stored within them goes with them, accelerating the very crisis we cannot afford to worsen. And we keep going."
-         data-hi="हर साल हम 4.7 मिलियन हेक्टेयर जंगल नष्ट करते हैं | ऐसे पारिस्थितिकी तंत्र जिन्हें विकसित होने में हजारों साल लगे। जब ये जंगल चले जाते हैं, तो उनमें जमा कार्बन उनके साथ चला जाता है, जो संकट को और तेज करता है।">
-        Every year we destroy 4.7 million hectares of forest | ecosystems that took thousands of years to evolve. When these forests go, the carbon stored within them goes with them, accelerating the very crisis we cannot afford to worsen. And we keep going.
-      </p>
-    </div>
-
-    <div class="crisis-card r" style="--accent:var(--amber)">
-      <span class="crisis-big">73% Lost</span>
-      <h3 class="t-lang" data-en="🦋 Biodiversity Collapse" data-hi="🦋 जैव विविधता पतन">🦋 Biodiversity Collapse</h3>
-      <p class="t-lang" 
-         data-en="The sixth mass extinction is not a future event. It is happening in real time. We have eliminated 73% of monitored vertebrate populations since 1970. The collapse of ecosystems does not stay contained to wildlife. When the food chain breaks, we break with it."
-         data-hi="छठा सामूहिक विनाश कोई भविष्य की घटना नहीं है। यह वास्तविक समय में हो रहा है। हमने 1970 के बाद से 73% कशेरुकी आबादी को खत्म कर दिया है। पारिस्थितिकी तंत्र का पतन सिर्फ वन्यजीवों तक सीमित नहीं रहता।">
-        The sixth mass extinction is not a future event. It is happening in real time. We have eliminated 73% of monitored vertebrate populations since 1970. The collapse of ecosystems does not stay contained to wildlife. When the food chain breaks, we break with it.
-      </p>
-    </div>
-
-    <div class="crisis-card r" style="--accent:var(--cyan)">
-      <span class="crisis-big">9M Dead/yr</span>
-      <h3 class="t-lang" data-en="☁️ Pollution Pandemic" data-hi="☁️ प्रदूषण महामारी">☁️ Pollution Pandemic</h3>
-      <p class="t-lang" 
-         data-en="6.5M die from outdoor air alone. 1.8M from contaminated water. 1.7 billion humans drink faecally polluted water today. We produce 460M tonnes of plastic per year and recycle less than 10%. The rest accumulates | in soil, rivers, blood, lungs. In you."
-         data-hi="केवल बाहरी हवा से 6.5M मरते हैं। दूषित पानी से 1.8M। आज 1.7 बिलियन लोग मल प्रदूषित पानी पीते हैं। हम प्रति वर्ष 460M टन प्लास्टिक का उत्पादन करते हैं और 10% से भी कम रीसायकल करते हैं।">
-        6.5M die from outdoor air alone. 1.8M from contaminated water. 1.7 billion humans drink faecally polluted water today. We produce 460M tonnes of plastic per year and recycle less than 10%. The rest accumulates | in soil, rivers, blood, lungs. In you.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ╔══ CHARTS ══╗ -->
-<section id="charts">
-  <span class="section-eyebrow muted r t-lang" data-en="The Evidence" data-hi="सबूत">The Evidence</span>
-  <h2 class="section-h2 r t-lang" 
+  <!-- ╔══ CHARTS ══╗ -->
+  <section id="charts">
+    <span class="section-eyebrow muted r t-lang" data-en="The Evidence" data-hi="सबूत">The Evidence</span>
+    <h2 class="section-h2 r t-lang"
       style="color:var(--off);font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:-.025em;margin-bottom:1.5rem"
       data-en="DATA DOESN'T LIE.<br><span style='-webkit-text-stroke:1px var(--muted);color:transparent'>GOVERNMENTS DO.</span>"
-      data-hi="डेटा झूठ नहीं बोलता।<br><span style='-webkit-text-stroke:1px var(--muted);color:transparent'>सरकारें बोलती हैं।</span>">
-    DATA DOESN'T LIE.<br><span style="-webkit-text-stroke:1px var(--muted);color:transparent">GOVERNMENTS DO.</span>
-  </h2>
-  <p class="chart-scope t-lang" data-en="All charts below use global data unless a source line says otherwise." data-hi="नीचे दिए गए सभी चार्ट वैश्विक डेटा का उपयोग करते हैं, जब तक स्रोत लाइन कुछ और न कहे।">All charts below use global data unless a source line says otherwise.</p>
+      data-hi="<span class='h-line-1'>डेटा झूठ नहीं बोलता।</span><span class='h-line-2'>सरकारें बोलती हैं।</span>">
+      DATA DOESN'T LIE.<br><span style="-webkit-text-stroke:1px var(--muted);color:transparent">GOVERNMENTS DO.</span>
+    </h2>
+    <p class="chart-scope t-lang" data-en="All charts below use global data unless a source line says otherwise."
+      data-hi="नीचे दिए गए सभी चार्ट वैश्विक डेटा का उपयोग करते हैं, जब तक स्रोत लाइन कुछ और न कहे।">All charts below
+      use global data unless a source line says otherwise.</p>
 
-  <div class="charts-row">
-    <div class="chart-box r">
-      <h4 class="t-lang" data-en="Global CO₂ Emissions (GtCO₂)" data-hi="वैश्विक CO₂ उत्सर्जन (GtCO₂)">Global CO₂ Emissions (GtCO₂)</h4>
-      <span class="csub t-lang" data-en="Fossil fuels & industry | 1960–2024" data-hi="जीवाश्म ईंधन और उद्योग | 1960–2024">Fossil fuels & industry | 1960–2024</span>
-      <canvas id="co2Chart"></canvas>
+    <div class="charts-row">
+      <div class="chart-box r">
+        <h4 class="t-lang" data-en="Global CO₂ Emissions (GtCO₂)" data-hi="वैश्विक CO₂ उत्सर्जन (GtCO₂)">Global CO₂
+          Emissions (GtCO₂)</h4>
+        <span class="csub t-lang" data-en="Fossil fuels & industry | 1960–2024"
+          data-hi="जीवाश्म ईंधन और उद्योग | 1960–2024">Fossil fuels & industry | 1960–2024</span>
+        <canvas id="co2Chart"></canvas>
+      </div>
+      <div class="chart-box r">
+        <h4 class="t-lang" data-en="Temperature Anomaly (°C)" data-hi="तापमान विसंगति (°C)">Temperature Anomaly (°C)
+        </h4>
+        <span class="csub t-lang" data-en="Deviation from pre-industrial baseline"
+          data-hi="पूर्व-औद्योगिक आधार रेखा से विचलन">Deviation from pre-industrial baseline</span>
+        <canvas id="tempChart"></canvas>
+      </div>
     </div>
-    <div class="chart-box r">
-      <h4 class="t-lang" data-en="Temperature Anomaly (°C)" data-hi="तापमान विसंगति (°C)">Temperature Anomaly (°C)</h4>
-      <span class="csub t-lang" data-en="Deviation from pre-industrial baseline" data-hi="पूर्व-औद्योगिक आधार रेखा से विचलन">Deviation from pre-industrial baseline</span>
-      <canvas id="tempChart"></canvas>
+    <div class="charts-row">
+      <div class="chart-box r">
+        <h4 class="t-lang" data-en="Wildlife Population Index" data-hi="वन्यजीव जनसंख्या सूचकांक">Wildlife Population
+          Index</h4>
+        <span class="csub t-lang" data-en="Average vertebrate populations | 1970 = 100"
+          data-hi="औसत कशेरुकी आबादी | 1970 = 100">Average vertebrate populations | 1970 = 100</span>
+        <canvas id="wildChart"></canvas>
+      </div>
+      <div class="chart-box r">
+        <h4 class="t-lang" data-en="Global GHG Emissions by Sector" data-hi="क्षेत्रवार वैश्विक ग्रीनहाउस गैस उत्सर्जन">
+          Global GHG Emissions by Sector</h4>
+        <span class="csub t-lang" data-en="Share of global greenhouse gases | IPCC AR6 | worldwide scope"
+          data-hi="वैश्विक ग्रीनहाउस गैसों में हिस्सा | IPCC AR6 | दुनिया भर का दायरा">Share of global greenhouse gases
+          | IPCC AR6 | worldwide scope</span>
+        <canvas id="sectorChart"></canvas>
+      </div>
     </div>
-  </div>
-  <div class="charts-row">
-    <div class="chart-box r">
-      <h4 class="t-lang" data-en="Wildlife Population Index" data-hi="वन्यजीव जनसंख्या सूचकांक">Wildlife Population Index</h4>
-      <span class="csub t-lang" data-en="Average vertebrate populations | 1970 = 100" data-hi="औसत कशेरुकी आबादी | 1970 = 100">Average vertebrate populations | 1970 = 100</span>
-      <canvas id="wildChart"></canvas>
-    </div>
-    <div class="chart-box r">
-      <h4 class="t-lang" data-en="Global GHG Emissions by Sector" data-hi="क्षेत्रवार वैश्विक ग्रीनहाउस गैस उत्सर्जन">Global GHG Emissions by Sector</h4>
-      <span class="csub t-lang" data-en="Share of global greenhouse gases | IPCC AR6 | worldwide scope" data-hi="वैश्विक ग्रीनहाउस गैसों में हिस्सा | IPCC AR6 | दुनिया भर का दायरा">Share of global greenhouse gases | IPCC AR6 | worldwide scope</span>
-      <canvas id="sectorChart"></canvas>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ╔══ ACTION ══╗ -->
-<section id="action">
-  <div class="action-grid">
-    <div class="r-left">
-      <h2 class="action-h2 t-lang" 
-          data-en="STOP.<br>THINK.<br>THEN <span class='red'>ACT.</span>"
+  <!-- ╔══ ACTION ══╗ -->
+  <section id="action">
+    <div class="action-grid">
+      <div class="r-left">
+        <h2 class="action-h2 t-lang" data-en="STOP.<br>THINK.<br>THEN <span class='red'>ACT.</span>"
           data-hi="रुकें।<br>सोचें।<br>फिर <span class='red'>कार्य करें।</span>">
-        STOP.<br>THINK.<br>THEN <span class="red">ACT.</span>
-      </h2>
-      <p class="action-lead action-lead--big t-lang" 
-         data-en="Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you vote, what you eat, where your money goes, and what you demand from the institutions that serve you."
-         data-hi="जागरूकता कार्रवाई नहीं है। इस पेज को साझा करना कार्रवाई नहीं है। यह पेज कार्रवाई नहीं है। कार्रवाई यह है कि आप कैसे वोट देते हैं, आप क्या खाते हैं, आपका पैसा कहाँ जाता है।">
-        Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you vote, what you eat, where your money goes, and what you demand from the institutions that serve you.
-      </p>
+          STOP.<br>THINK.<br>THEN <span class="red">ACT.</span>
+        </h2>
+        <p class="action-lead action-lead--big t-lang"
+          data-en="Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you vote, what you eat, where your money goes, and what you demand from the institutions that serve you."
+          data-hi="जागरूकता कार्रवाई नहीं है। इस पेज को साझा करना कार्रवाई नहीं है। यह पेज कार्रवाई नहीं है। कार्रवाई यह है कि आप कैसे वोट देते हैं, आप क्या खाते हैं, आपका पैसा कहाँ जाता है।">
+          Awareness is not action. Sharing this page is not action. This page is not action. Action is changing how you
+          vote, what you eat, where your money goes, and what you demand from the institutions that serve you.
+        </p>
+      </div>
+      <div>
+        <ul class="action-list">
+          <li class="r">
+            <span class="a-n">01</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Vote on climate | unconditionally" data-hi="जलवायु पर वोट दें | बिना शर्त">
+                Vote on climate | unconditionally</h5>
+              <p class="t-lang" data-en="Systemic change outweighs every individual action combined."
+                data-hi="प्रणालीगत परिवर्तन हर व्यक्तिगत कार्रवाई से भारी पड़ता है।">Systemic change outweighs every
+                individual action combined.</p>
+            </div>
+          </li>
+          <li class="r">
+            <span class="a-n">02</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Shift to a plant-rich diet" data-hi="पौधों पर आधारित आहार अपनाएं">Shift to a
+                plant-rich diet</h5>
+              <p class="t-lang" data-en="Reducing beef and dairy is the single highest-impact personal change."
+                data-hi="बीफ और डेयरी को कम करना सबसे अधिक प्रभाव वाला व्यक्तिगत बदलाव है।">Reducing beef and dairy is
+                the single highest-impact personal change.</p>
+            </div>
+          </li>
+          <li class="r">
+            <span class="a-n">03</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Switch your energy source" data-hi="अपना ऊर्जा स्रोत बदलें">Switch your energy
+                source</h5>
+              <p class="t-lang" data-en="Change to a green energy tariff or install solar panels."
+                data-hi="ग्रीन एनर्जी टैरिफ पर स्विच करें या सोलर पैनल लगाएं।">Change to a green energy tariff or
+                install solar panels.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <ul class="action-list">
-        <li class="r">
-          <span class="a-n">01</span>
-          <div class="a-t">
-            <h5 class="t-lang" data-en="Vote on climate | unconditionally" data-hi="जलवायु पर वोट दें | बिना शर्त">Vote on climate | unconditionally</h5>
-            <p class="t-lang" data-en="Systemic change outweighs every individual action combined." data-hi="प्रणालीगत परिवर्तन हर व्यक्तिगत कार्रवाई से भारी पड़ता है।">Systemic change outweighs every individual action combined.</p>
-          </div>
-        </li>
-        <li class="r">
-          <span class="a-n">02</span>
-          <div class="a-t">
-            <h5 class="t-lang" data-en="Shift to a plant-rich diet" data-hi="पौधों पर आधारित आहार अपनाएं">Shift to a plant-rich diet</h5>
-            <p class="t-lang" data-en="Reducing beef and dairy is the single highest-impact personal change." data-hi="बीफ और डेयरी को कम करना सबसे अधिक प्रभाव वाला व्यक्तिगत बदलाव है।">Reducing beef and dairy is the single highest-impact personal change.</p>
-          </div>
-        </li>
-        <li class="r">
-          <span class="a-n">03</span>
-          <div class="a-t">
-            <h5 class="t-lang" data-en="Switch your energy source" data-hi="अपना ऊर्जा स्रोत बदलें">Switch your energy source</h5>
-            <p class="t-lang" data-en="Change to a green energy tariff or install solar panels." data-hi="ग्रीन एनर्जी टैरिफ पर स्विच करें या सोलर पैनल लगाएं।">Change to a green energy tariff or install solar panels.</p>
-          </div>
-        </li>
-      </ul>
+  </section>
+
+  <!-- ╔══ EXIT ══╗ -->
+  <section id="exit">
+    <p class="exit-line r t-lang"
+      data-en="THE BEST TIME TO ACT<br>WAS <span class='red'>30 YEARS AGO.</span><br>THE SECOND BEST TIME<br>IS <span class='hollow-w'>RIGHT NOW.</span>"
+      data-hi="कार्य करने का सबसे अच्छा समय<br><span class='red'>30 साल पहले था।</span><br>दूसरा सबसे अच्छा समय<br><span class='hollow-w'>अभी है।</span>">
+      THE BEST TIME TO ACT<br>
+      WAS <span class="red">30 YEARS AGO.</span><br>
+      THE SECOND BEST TIME<br>
+      IS <span class="hollow-w">RIGHT NOW.</span>
+    </p>
+    <p class="exit-src r t-lang" data-en="WORLD ENVIRONMENT DAY | JUNE 5, 2026"
+      data-hi="विश्व पर्यावरण दिवस | 5 जून, 2026">
+      WORLD ENVIRONMENT DAY | JUNE 5, 2026<br>
+      DATA: UNEP | NOAA | NASA | IEA | UN FAO | WWF | IPCC
+    </p>
+  </section>
+
+  <footer>
+    <div class="f-brands">
+      <button class="f-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH
+        IS DYING</button>
     </div>
-  </div>
-</section>
+    <div class="f-meta">
+      <p class="f-copy t-lang" data-en="A statement for World Environment Day 2026."
+        data-hi="विश्व पर्यावरण दिवस 2026 के लिए एक बयान।">A statement for World Environment Day 2026.</p>
+      <p class="f-credit">Designed and developed by <a href="https://gurjeet.dev" target="_blank">Gurjeet Singh
+          Virdde</a></p>
+    </div>
+  </footer>
 
-<!-- ╔══ EXIT ══╗ -->
-<section id="exit">
-  <p class="exit-line r t-lang" 
-     data-en="THE BEST TIME TO ACT<br>WAS <span class='red'>30 YEARS AGO.</span><br>THE SECOND BEST TIME<br>IS <span class='hollow-w'>RIGHT NOW.</span>"
-     data-hi="कार्य करने का सबसे अच्छा समय<br><span class='red'>30 साल पहले था।</span><br>दूसरा सबसे अच्छा समय<br><span class='hollow-w'>अभी है।</span>">
-    THE BEST TIME TO ACT<br>
-    WAS <span class="red">30 YEARS AGO.</span><br>
-    THE SECOND BEST TIME<br>
-    IS <span class="hollow-w">RIGHT NOW.</span>
-  </p>
-  <p class="exit-src r t-lang" data-en="WORLD ENVIRONMENT DAY | JUNE 5, 2026" data-hi="विश्व पर्यावरण दिवस | 5 जून, 2026">
-    WORLD ENVIRONMENT DAY | JUNE 5, 2026<br>
-    DATA: UNEP | NOAA | NASA | IEA | UN FAO | WWF | IPCC
-  </p>
-</section>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
-<footer>
-  <div class="f-brands">
-    <button class="f-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH IS DYING</button>
-  </div>
-  <div class="f-meta">
-    <p class="f-copy t-lang" data-en="A statement for World Environment Day 2026." data-hi="विश्व पर्यावरण दिवस 2026 के लिए एक बयान।">A statement for World Environment Day 2026.</p>
-    <p class="f-credit">Designed and developed by <a href="https://gurjeet.dev" target="_blank">Gurjeet Singh Virdde</a></p>
-  </div>
-</footer>
-
-<button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">↑</button>
-
-<!-- JS -->
-<script src="script.js"></script>
+  <!-- JS -->
+  <script src="script.js"></script>
 
 </body>
+
 </html>
