@@ -1142,11 +1142,11 @@ footer::before {
 }
 
 .f-brand {
-  appearance: none;
+  display: inline-block;
   border: 0;
   padding: 0;
   background: transparent;
-  cursor: pointer;
+  cursor: default;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.8rem;
   line-height: 1;
@@ -1775,6 +1775,10 @@ input[type="range"]::-webkit-slider-thumb {
   
   [data-lang="hi"] .f-copy {
     font-size: 0.9rem;
+  }
+
+  .exit-src {
+    line-height: 1.6;
   }
 
   #bar {
