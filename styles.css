@@ -228,7 +228,7 @@ body {
   letter-spacing: 0.05em;
   font-weight: 900;
   flex-shrink: 0;
-  text-shadow: 0 0 12px rgba(255, 93, 58, .42), 0 0 30px rgba(255, 216, 107, .18);
+  text-shadow: 0 0 8px rgba(255, 93, 58, .25);
 }
 
 .bar-brand::before,
@@ -242,8 +242,8 @@ body {
     radial-gradient(circle at 30% 80%, rgba(255, 21, 0, .4), transparent 45%),
     radial-gradient(circle at 55% 35%, rgba(255, 180, 0, .25), transparent 40%),
     radial-gradient(circle at 75% 80%, rgba(255, 122, 24, .3), transparent 35%);
-  filter: blur(25px);
-  opacity: .6;
+  filter: blur(14px);
+  opacity: .35;
   animation: emberPulse 2.8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -297,34 +297,33 @@ body {
 }
 
 #bar.inverted {
-  background: var(--red);
-  border-bottom-color: transparent;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  background: #1a0000;
+  border-bottom-color: rgba(255, 21, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 #bar.inverted .bar-brand {
-  text-shadow: 0 0 15px rgba(255, 255, 255, .4);
+  text-shadow: 0 0 8px rgba(255, 93, 58, .3);
 }
 
 #bar.inverted .bar-brand::before {
   display: none;
-  /* Remove the "yellowish box" glow in inverted mode */
 }
 
 #bar.inverted .bar-left,
 #bar.inverted .bar-right span {
-  color: rgba(0, 0, 0, .8)
+  color: rgba(255, 255, 255, .5)
 }
 
 #bar.inverted #lang-toggle-top {
-  border-color: #000;
-  color: #000;
+  border-color: var(--red);
+  color: var(--off);
   font-weight: 700;
 }
 
 #bar.inverted .bar-left b,
 #bar.inverted .bar-right b {
-  color: #000;
+  color: var(--red);
   font-weight: 900
 }
 
@@ -380,7 +379,7 @@ body {
   color: var(--off);
   position: relative;
   isolation: isolate;
-  text-shadow: 0 0 18px rgba(255, 21, 0, .35), 0 0 60px rgba(255, 179, 0, .14);
+  text-shadow: 0 0 8px rgba(255, 21, 0, .25);
 }
 
 .hero-rule {
@@ -400,9 +399,7 @@ body {
 .hero-context {
   font-size: 1.15rem;
   line-height: 1.8;
-  /* Increased */
-  color: rgba(255, 255, 255, .7);
-  /* Brighter */
+  color: rgba(255, 255, 255, .85);
   font-weight: 500;
 }
 
@@ -442,8 +439,12 @@ body {
 /* ──────────────────────────── DAMAGE (red) ─────── */
 #damage {
   min-height: 100vh;
-  background: var(--red);
-  color: #000;
+  background: linear-gradient(
+    180deg,
+    #1a0000 0%,
+    #2a0000 100%
+  );
+  color: #fff;
   padding: 6rem 4rem;
   display: flex;
   flex-direction: column;
@@ -469,7 +470,7 @@ body {
 }
 
 .damage-headline .hollow {
-  -webkit-text-stroke: 2px #000;
+  -webkit-text-stroke: 2px #fff;
   color: transparent;
 }
 
@@ -489,8 +490,8 @@ body {
 }
 
 .damage-card {
-  background: rgba(0, 0, 0, .1);
-  border: 1px solid rgba(0, 0, 0, .18);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
   padding: 2rem 1.75rem;
 }
 
@@ -589,7 +590,7 @@ body {
 .stat-desc {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(240, 237, 232, .6);
+  color: rgba(240, 237, 232, .8);
   max-width: 500px;
 }
 
@@ -655,7 +656,7 @@ body {
   background:
     radial-gradient(circle at 50% 50%, rgba(255, 21, 0, .1), transparent 52%),
     linear-gradient(135deg, rgba(255, 21, 0, .06), rgba(255, 179, 0, .04));
-  box-shadow: 0 0 40px rgba(255, 21, 0, .12), inset 0 0 24px rgba(255, 255, 255, .05);
+  box-shadow: 0 0 20px rgba(255, 21, 0, .08);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: .65rem;
@@ -1163,8 +1164,7 @@ footer::before {
 }
 
 .f-brand:hover {
-  animation: shine 2s linear infinite, sparkles 1s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 25px rgba(255, 93, 58, 0.5));
+  filter: drop-shadow(0 0 20px rgba(255, 93, 58, 0.3));
 }
 
 @keyframes shine {
@@ -1173,33 +1173,7 @@ footer::before {
   }
 }
 
-.f-brand::after {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background-image: 
-    radial-gradient(circle, #fff 1px, transparent 1px),
-    radial-gradient(circle, #ffd86b 1px, transparent 1px);
-  background-size: 25% 25%, 35% 35%;
-  background-position: 0 0, 10px 10px;
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
-  transition: opacity 0.3s ease;
-}
-
-.f-brand:hover::after {
-  opacity: 1;
-  animation: sparkleFloat 3s linear infinite;
-}
-
-@keyframes sparkleFloat {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-5px) scale(1.1); }
-  100% { transform: translateY(0) scale(1); }
-}
-
-/* Sparkles effect implemented above */
+/* Sparkle system removed for cleaner design */
 
 .f-meta {
   text-align: center;
@@ -1420,6 +1394,14 @@ footer::before {
   border-color: #ffd86b;
 }
 
+/* ──────────────────────────── QUIET ZONE ────────── */
+.section-quiet {
+  background: #0a0a0a;
+  color: #ccc;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+
 /* ──────────────────────────── REVEAL ────────────── */
 .r {
   opacity: 0;
@@ -1541,8 +1523,8 @@ footer::before {
 }
 
 .toggle-group button.active {
-  background: var(--red);
-  color: #000;
+  background: #222;
+  color: #fff;
   border-color: var(--red);
 }
 
@@ -1653,6 +1635,264 @@ input[type="range"]::-webkit-slider-thumb {
   padding-left: 1rem;
 }
 
+/* ──────────────────────────── PARTICLE CANVAS ───── */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+#hero, #damage, #stats, #crises, #charts, #solutions, #action, #exit, #personal-impact {
+  position: relative;
+  z-index: 1;
+}
+
+/* ──────────────────────────── SOLUTIONS ─────────── */
+#solutions {
+  background: linear-gradient(180deg, #020a04 0%, #040d08 40%, #020a04 100%);
+  padding: 8rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#solutions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+}
+
+#solutions::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+}
+
+.solutions-intro {
+  max-width: 800px;
+  margin-bottom: 5rem;
+}
+
+.sol-eyebrow {
+  color: #22c55e !important;
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.sol-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: .92;
+  letter-spacing: -.025em;
+  color: var(--off);
+  margin-bottom: 1.5rem;
+}
+
+.sol-glow {
+  background: linear-gradient(135deg, #22c55e, #00C8FF, #C8FF00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(34, 197, 94, 0.3));
+  animation: solGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes solGlow {
+  0% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.2)); }
+  100% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.5)); }
+}
+
+.sol-lead {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 640px;
+}
+
+.sol-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.sol-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s ease;
+}
+
+.sol-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sol-accent), transparent);
+  opacity: 0.6;
+}
+
+.sol-stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 80%, var(--sol-accent), transparent 60%);
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.sol-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.sol-stat-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+}
+
+.sol-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 8vw, 6rem);
+  line-height: 1;
+  color: var(--sol-accent);
+  display: inline-block;
+  text-shadow: 0 0 30px var(--sol-accent);
+}
+
+.sol-stat-unit {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--sol-accent);
+  margin-left: 0.5rem;
+  opacity: 0.7;
+  vertical-align: super;
+}
+
+.sol-stat-label {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.75rem;
+  max-width: 360px;
+}
+
+.sol-stat-src {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.08em;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* Solution Victories */
+.sol-wins {
+  margin-top: 2rem;
+}
+
+.sol-wins-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+  color: var(--off);
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sol-wins-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e, transparent);
+}
+
+.sol-wins-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.sol-win-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.sol-win-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 197, 94, 0.2);
+  background: rgba(34, 197, 94, 0.03);
+}
+
+.sol-win-year {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #22c55e;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sol-win-card h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--off);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.sol-win-card p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Hindi overrides for solutions */
+[data-lang="hi"] .sol-h2 {
+  font-size: clamp(3rem, 7vw, 7rem);
+}
+
+[data-lang="hi"] .sol-lead {
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+[data-lang="hi"] .sol-stat-label,
+[data-lang="hi"] .sol-win-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+[data-lang="hi"] .sol-wins-title {
+  font-size: 2rem;
+}
+
 /* ──────────────────────────── KEYFRAMES ─────────── */
 @keyframes blink {
 
@@ -1701,7 +1941,8 @@ input[type="range"]::-webkit-slider-thumb {
   #charts,
   #action,
   #exit,
-  #personal-impact {
+  #personal-impact,
+  #solutions {
     padding: 5rem 1.75rem
   }
 
@@ -1721,7 +1962,9 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   .crisis-grid,
-  .charts-row {
+  .charts-row,
+  .sol-stats-grid,
+  .sol-wins-grid {
     grid-template-columns: 1fr
   }
 
@@ -1972,4 +2215,115 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 0.75rem;
     min-width: 70px
   }
+}
+
+/* ===== POLISH PATCH ===== */
+
+/* 1. Fix typography consistency */
+.hero-context {
+  line-height: 1.6;
+  color: rgba(255,255,255,.85);
+}
+
+.stat-desc {
+  line-height: 1.6;
+  color: rgba(240,237,232,.8);
+}
+
+/* 2. Reduce global glow intensity */
+.bar-brand::before,
+.f-brand::before,
+.hero-counter::before {
+  opacity: 0.22;
+  filter: blur(14px);
+}
+
+/* 3. Slow down ambient animation (less distraction) */
+.bar-brand::before,
+.f-brand::before,
+.hero-counter::before {
+  animation: emberPulse 4.5s ease-in-out infinite;
+}
+
+/* 4. Clean scroll hint */
+.scroll-hint {
+  text-shadow: none;
+}
+
+/* 5. Heat card noise reduction */
+.heat-pulse,
+.heat-pulse span {
+  box-shadow: none;
+}
+
+/* 6. Personal impact small UI fix */
+#ac-val {
+  color: #ccc;
+}
+
+/* 7. Keep red strong only for key output */
+.live-result .res-value {
+  font-weight: 700;
+}
+
+/* 8. Solutions section readability */
+.sol-lead {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Remove unnecessary glow in solutions */
+.sol-glow {
+  filter: none;
+}
+
+.sol-stat-num {
+  text-shadow: none;
+}
+
+/* 9. Footer calm down */
+footer::before {
+  filter: blur(40px);
+  opacity: 0.4;
+  animation: none;
+}
+
+.f-meta {
+  animation: none;
+}
+
+/* subtle footer glow */
+.f-brand {
+  filter: drop-shadow(0 0 12px rgba(255,93,58,.2));
+}
+
+.f-brand:hover {
+  filter: drop-shadow(0 0 20px rgba(255,93,58,.3));
+}
+
+/* 10. Scroll progress minimal */
+#scroll-progress {
+  box-shadow: none;
+}
+
+/* 11. Slight spacing improvement */
+.damage-card {
+  padding: 2.2rem 2rem;
+}
+
+/* 12. Better text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 13. Selection styling */
+::selection {
+  background: var(--red);
+  color: #000;
+}
+
+/* 14. Cursor consistency */
+button,
+.bar-brand {
+  cursor: pointer;
 }

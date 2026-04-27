@@ -22,6 +22,12 @@
 
 <body data-lang="en">
 
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
   <!-- ╔══ ACCUSATION BAR ══╗ -->
   <div id="bar">
     <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH
@@ -412,6 +418,104 @@
     </div>
   </section>
 
+  <!-- ╔══ SOLUTIONS — WHAT'S WORKING ══╗ -->
+  <section id="solutions">
+    <div class="solutions-intro">
+      <span class="section-eyebrow sol-eyebrow r t-lang" data-en="What's Working" data-hi="क्या काम कर रहा है">What's Working</span>
+      <h2 class="sol-h2 r t-lang"
+        data-en="THE PLANET IS<br><span class='sol-glow'>FIGHTING BACK.</span>"
+        data-hi="ग्रह<br><span class='sol-glow'>लड़ रहा है।</span>">
+        THE PLANET IS<br><span class="sol-glow">FIGHTING BACK.</span>
+      </h2>
+      <p class="sol-lead r t-lang"
+        data-en="Despair is a luxury we cannot afford. While the damage is real, so is the resistance. Here is the proof that change is not only possible | it is already happening."
+        data-hi="निराशा एक विलासिता है जो हम बर्दाश्त नहीं कर सकते। जबकि नुकसान वास्तविक है, प्रतिरोध भी वास्तविक है। यहाँ इस बात का प्रमाण है कि बदलाव न केवल संभव है | यह पहले से हो रहा है।">
+        Despair is a luxury we cannot afford. While the damage is real, so is the resistance. Here is the proof that change is not only possible | it is already happening.
+      </p>
+    </div>
+
+    <div class="sol-stats-grid">
+      <div class="sol-stat-card r" style="--sol-accent: #22c55e">
+        <div class="sol-stat-icon">⚡</div>
+        <span class="sol-stat-num" data-count="30">0</span><span class="sol-stat-unit">%</span>
+        <p class="sol-stat-label t-lang" data-en="Of global electricity now comes from renewables. Solar alone grew 26% in 2024."
+          data-hi="वैश्विक बिजली का 30% अब नवीकरणीय ऊर्जा से आता है। केवल सौर ऊर्जा 2024 में 26% बढ़ी।">
+          Of global electricity now comes from renewables. Solar alone grew 26% in 2024.
+        </p>
+        <span class="sol-stat-src">IEA Renewables Report 2024</span>
+      </div>
+      <div class="sol-stat-card r" style="--sol-accent: #00C8FF">
+        <div class="sol-stat-icon">🌳</div>
+        <span class="sol-stat-num" data-count="1">0</span><span class="sol-stat-unit">BILLION</span>
+        <p class="sol-stat-label t-lang" data-en="Trees planted in 2024 alone through global reforestation programs. The Great Green Wall in Africa spans 8,000km."
+          data-hi="2024 में अकेले वैश्विक पुनर्वनीकरण कार्यक्रमों के माध्यम से 1 अरब पेड़ लगाए गए। अफ्रीका में ग्रेट ग्रीन वॉल 8,000 किमी तक फैली है।">
+          Trees planted in 2024 alone through global reforestation programs. The Great Green Wall in Africa spans 8,000km.
+        </p>
+        <span class="sol-stat-src">UN Decade on Ecosystem Restoration</span>
+      </div>
+      <div class="sol-stat-card r" style="--sol-accent: #C8FF00">
+        <div class="sol-stat-icon">🚫</div>
+        <span class="sol-stat-num" data-count="140">0</span><span class="sol-stat-unit">NATIONS</span>
+        <p class="sol-stat-label t-lang" data-en="Have now banned or restricted single-use plastics. The Global Plastics Treaty is in final negotiations."
+          data-hi="अब एकल-उपयोग प्लास्टिक पर प्रतिबंध या प्रतिबंध लगा दिया है। वैश्विक प्लास्टिक संधि अंतिम बातचीत में है।">
+          Have now banned or restricted single-use plastics. The Global Plastics Treaty is in final negotiations.
+        </p>
+        <span class="sol-stat-src">UNEP Global Plastics Outlook</span>
+      </div>
+      <div class="sol-stat-card r" style="--sol-accent: #a855f7">
+        <div class="sol-stat-icon">🔋</div>
+        <span class="sol-stat-num" data-count="40">0</span><span class="sol-stat-unit">MILLION</span>
+        <p class="sol-stat-label t-lang" data-en="Electric vehicles on the road globally. EV sales tripled since 2020. China, Europe, and India are leading the shift."
+          data-hi="वैश्विक स्तर पर सड़कों पर 40 मिलियन इलेक्ट्रिक वाहन। 2020 से ईवी बिक्री तीन गुना हो गई। चीन, यूरोप और भारत बदलाव का नेतृत्व कर रहे हैं।">
+          Electric vehicles on the road globally. EV sales tripled since 2020. China, Europe, and India are leading the shift.
+        </p>
+        <span class="sol-stat-src">IEA Global EV Outlook 2025</span>
+      </div>
+    </div>
+
+    <div class="sol-wins">
+      <h3 class="sol-wins-title r t-lang" data-en="VICTORIES WORTH KNOWING" data-hi="जानने योग्य जीतें">VICTORIES WORTH KNOWING</h3>
+      <div class="sol-wins-grid">
+        <div class="sol-win-card r">
+          <span class="sol-win-year">2024</span>
+          <h4 class="t-lang" data-en="Ozone Layer Recovery" data-hi="ओजोन परत की पुनर्प्राप्ति">Ozone Layer Recovery</h4>
+          <p class="t-lang"
+            data-en="The ozone hole is on track to fully heal by 2066. Proof that when the world acts together on science, it works."
+            data-hi="ओजोन छिद्र 2066 तक पूरी तरह ठीक होने की राह पर है। इसका प्रमाण कि जब दुनिया विज्ञान पर एक साथ कार्य करती है, तो यह काम करता है।">
+            The ozone hole is on track to fully heal by 2066. Proof that when the world acts together on science, it works.
+          </p>
+        </div>
+        <div class="sol-win-card r">
+          <span class="sol-win-year">2024</span>
+          <h4 class="t-lang" data-en="India's Solar Surge" data-hi="भारत की सौर ऊर्जा वृद्धि">India's Solar Surge</h4>
+          <p class="t-lang"
+            data-en="India added 20GW of solar capacity in a single year, surpassing its own targets. Rooftop solar is now cheaper than grid power in most states."
+            data-hi="भारत ने एक ही वर्ष में 20GW सौर क्षमता जोड़ी, अपने लक्ष्यों को पार किया। अधिकांश राज्यों में छत पर सौर ऊर्जा अब ग्रिड बिजली से सस्ती है।">
+            India added 20GW of solar capacity in a single year, surpassing its own targets. Rooftop solar is now cheaper than grid power in most states.
+          </p>
+        </div>
+        <div class="sol-win-card r">
+          <span class="sol-win-year">2025</span>
+          <h4 class="t-lang" data-en="Amazon Deforestation -50%" data-hi="अमेज़न वनों की कटाई -50%">Amazon Deforestation -50%</h4>
+          <p class="t-lang"
+            data-en="Brazil cut Amazon deforestation by 50% in 2024 through enforcement and satellite monitoring. Largest drop in 15 years."
+            data-hi="ब्राज़ील ने 2024 में प्रवर्तन और उपग्रह निगरानी के माध्यम से अमेज़न वनों की कटाई में 50% की कटौती की। 15 वर्षों में सबसे बड़ी गिरावट।">
+            Brazil cut Amazon deforestation by 50% in 2024 through enforcement and satellite monitoring. Largest drop in 15 years.
+          </p>
+        </div>
+        <div class="sol-win-card r">
+          <span class="sol-win-year">2025</span>
+          <h4 class="t-lang" data-en="Youth Climate Lawsuits Win" data-hi="युवा जलवायु मुकदमे जीते">Youth Climate Lawsuits Win</h4>
+          <p class="t-lang"
+            data-en="Courts in 34 countries have ruled in favour of climate action. Governments are being legally forced to meet their own targets."
+            data-hi="34 देशों की अदालतों ने जलवायु कार्रवाई के पक्ष में फैसला सुनाया है। सरकारों को कानूनी रूप से अपने लक्ष्यों को पूरा करने के लिए मजबूर किया जा रहा है।">
+            Courts in 34 countries have ruled in favour of climate action. Governments are being legally forced to meet their own targets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ╔══ ACTION ══╗ -->
   <section id="action">
     <div class="action-grid">
@@ -432,31 +536,49 @@
           <li class="r">
             <span class="a-n">01</span>
             <div class="a-t">
-              <h5 class="t-lang" data-en="Vote on climate | unconditionally" data-hi="जलवायु पर वोट दें | बिना शर्त">
-                Vote on climate | unconditionally</h5>
-              <p class="t-lang" data-en="Systemic change outweighs every individual action combined."
-                data-hi="प्रणालीगत परिवर्तन हर व्यक्तिगत कार्रवाई से भारी पड़ता है।">Systemic change outweighs every
-                individual action combined.</p>
+              <h5 class="t-lang" data-en="Vote on climate | unconditionally" data-hi="जलवायु पर वोट दें | बिना शर्त">Vote on climate | unconditionally</h5>
+              <p class="t-lang" data-en="Systemic change outweighs every individual action combined. Hold leaders accountable."
+                data-hi="प्रणालीगत परिवर्तन हर व्यक्तिगत कार्रवाई से भारी पड़ता है। नेताओं को जवाबदेह ठहराएं।">Systemic change outweighs every individual action combined. Hold leaders accountable.</p>
             </div>
           </li>
           <li class="r">
             <span class="a-n">02</span>
             <div class="a-t">
-              <h5 class="t-lang" data-en="Shift to a plant-rich diet" data-hi="पौधों पर आधारित आहार अपनाएं">Shift to a
-                plant-rich diet</h5>
-              <p class="t-lang" data-en="Reducing beef and dairy is the single highest-impact personal change."
-                data-hi="बीफ और डेयरी को कम करना सबसे अधिक प्रभाव वाला व्यक्तिगत बदलाव है।">Reducing beef and dairy is
-                the single highest-impact personal change.</p>
+              <h5 class="t-lang" data-en="Shift to a plant-rich diet" data-hi="पौधों पर आधारित आहार अपनाएं">Shift to a plant-rich diet</h5>
+              <p class="t-lang" data-en="Reducing beef and dairy is the single highest-impact personal change. Saves 1,500kg CO₂/year."
+                data-hi="बीफ और डेयरी को कम करना सबसे अधिक प्रभाव वाला व्यक्तिगत बदलाव है। 1,500 किलो CO₂/वर्ष बचाता है।">Reducing beef and dairy is the single highest-impact personal change. Saves 1,500kg CO₂/year.</p>
             </div>
           </li>
           <li class="r">
             <span class="a-n">03</span>
             <div class="a-t">
-              <h5 class="t-lang" data-en="Switch your energy source" data-hi="अपना ऊर्जा स्रोत बदलें">Switch your energy
-                source</h5>
-              <p class="t-lang" data-en="Change to a green energy tariff or install solar panels."
-                data-hi="ग्रीन एनर्जी टैरिफ पर स्विच करें या सोलर पैनल लगाएं।">Change to a green energy tariff or
-                install solar panels.</p>
+              <h5 class="t-lang" data-en="Switch your energy source" data-hi="अपना ऊर्जा स्रोत बदलें">Switch your energy source</h5>
+              <p class="t-lang" data-en="Green energy tariffs or rooftop solar. In India, solar is now cheaper than coal."
+                data-hi="ग्रीन एनर्जी टैरिफ या छत पर सोलर। भारत में सोलर अब कोयले से सस्ता है।">Green energy tariffs or rooftop solar. In India, solar is now cheaper than coal.</p>
+            </div>
+          </li>
+          <li class="r">
+            <span class="a-n">04</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Refuse single-use plastic" data-hi="एकल-उपयोग प्लास्टिक से इनकार करें">Refuse single-use plastic</h5>
+              <p class="t-lang" data-en="Carry your own bag, bottle, and container. 8 million tonnes of plastic enter the ocean every year."
+                data-hi="अपना बैग, बोतल और कंटेनर ले जाएं। हर साल 80 लाख टन प्लास्टिक समुद्र में जाता है।">Carry your own bag, bottle, and container. 8 million tonnes of plastic enter the ocean every year.</p>
+            </div>
+          </li>
+          <li class="r">
+            <span class="a-n">05</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Plant trees | protect green cover" data-hi="पेड़ लगाएं | हरित आवरण की रक्षा करें">Plant trees | protect green cover</h5>
+              <p class="t-lang" data-en="One tree absorbs ~22kg of CO₂ per year. Join local plantation drives or donate to verified reforestation projects."
+                data-hi="एक पेड़ प्रति वर्ष ~22 किलो CO₂ अवशोषित करता है। स्थानीय वृक्षारोपण अभियान में शामिल हों।">One tree absorbs ~22kg of CO₂ per year. Join local plantation drives or donate to verified reforestation projects.</p>
+            </div>
+          </li>
+          <li class="r">
+            <span class="a-n">06</span>
+            <div class="a-t">
+              <h5 class="t-lang" data-en="Talk about it | break the silence" data-hi="इसके बारे में बात करें | चुप्पी तोड़ें">Talk about it | break the silence</h5>
+              <p class="t-lang" data-en="Climate silence is complicity. Discuss at dinner tables, in classrooms, in boardrooms. Make it impossible to ignore."
+                data-hi="जलवायु पर चुप्पी सहभागिता है। डिनर टेबल पर, कक्षाओं में, बोर्डरूम में चर्चा करें।">Climate silence is complicity. Discuss at dinner tables, in classrooms, in boardrooms. Make it impossible to ignore.</p>
             </div>
           </li>
         </ul>
