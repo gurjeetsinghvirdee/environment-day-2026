@@ -2136,10 +2136,10 @@ footer::before {
   display: grid;
   place-items: center;
   cursor: pointer;
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 260;
+  position: fixed !important;
+  right: 1.25rem !important;
+  bottom: 1.25rem !important;
+  z-index: 9999 !important;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px) scale(.8);
