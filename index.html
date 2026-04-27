@@ -8,19 +8,22 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet" />
+  <!-- Fonts with preload for better LCP -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
-  <!-- Chart.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <!-- Chart.js - LAZY LOADED on scroll (defer) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body data-lang="en">
+
+  <!-- ╔══ ACCESSIBILITY: SKIP LINKS ══╗ -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#solutions" class="skip-link">Skip to solutions</a>
 
   <!-- Scroll Progress -->
   <div id="scroll-progress"></div>
@@ -29,21 +32,21 @@
   <canvas id="particle-canvas"></canvas>
 
   <!-- ╔══ ACCUSATION BAR ══╗ -->
-  <div id="bar">
-    <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है">EARTH
+  <nav id="bar" role="navigation" aria-label="Main navigation">
+    <button class="bar-brand t-lang js-top-link" type="button" data-en="EARTH IS DYING" data-hi="पृथ्वी मर रही है" aria-label="Home - Earth Is Dying">EARTH
       IS DYING</button>
-    <div class="bar-left">
-      <span class="t-lang" data-en="TIME ON PAGE:" data-hi="पेज पर समय:">TIME ON PAGE:</span> <b id="b-time">00:00</b>
+    <div class="bar-left" aria-live="polite" aria-atomic="true">
+      <span class="t-lang" data-en="TIME ON PAGE:" data-hi="पेज पर समय:">TIME ON PAGE:</span> <b id="b-time" aria-label="Time on page">00:00</b>
     </div>
     <div class="bar-right">
-      <span><span class="t-lang" data-en="CO₂ ADDED:" data-hi="CO₂ वृद्धि:">CO₂ ADDED:</span> <b id="b-co2">0</b> <span
+      <span aria-live="polite" aria-atomic="true"><span class="t-lang" data-en="CO₂ ADDED:" data-hi="CO₂ वृद्धि:">CO₂ ADDED:</span> <b id="b-co2" aria-label="CO2 added">0</b> <span
           class="t-lang" data-en="TONS" data-hi="टन">TONS</span></span>
-      <button id="lang-toggle-top" onclick="toggleLang()">HINDI</button>
+      <button id="lang-toggle-top" onclick="toggleLang()" aria-label="Toggle language between English and Hindi" aria-pressed="false">HINDI</button>
     </div>
-  </div>
+  </nav>
 
   <!-- ╔══ HERO ══╗ -->
-  <section id="hero">
+  <section id="hero" id="main-content" role="main">
     <div class="live-badge">
       <div class="live-dot"></div>
       <span class="t-lang" data-en="LIVE | TONS OF CO₂ EMITTED IN 2026"
@@ -126,10 +129,10 @@
   </section>
 
   <!-- ╔══ HEAT ATLAS ══╗ -->
-  <section id="atlas">
+  <section id="atlas" role="region" aria-labelledby="atlas-title">
     <div class="atlas-head r">
       <span class="section-eyebrow red t-lang" data-en="THE HEAT ATLAS" data-hi="गर्मी का नक्शा">THE HEAT ATLAS</span>
-      <h2 class="atlas-title t-lang"
+      <h2 class="atlas-title t-lang" id="atlas-title"
         data-en="THE WORLD DOES NOT EXPLAIN ITSELF.<br><span class='atlas-subtle'>IT LEAVES CLUES IN COLOR.</span>"
         data-hi="दुनिया खुद को समझाती नहीं।<br><span class='atlas-subtle'>यह रंगों में सुराग छोड़ती है।</span>">
         THE WORLD DOES NOT EXPLAIN ITSELF.<br><span class="atlas-subtle">IT LEAVES CLUES IN COLOR.</span>
@@ -177,8 +180,8 @@
       READING</p>
 
     <div class="damage-headline t-lang" data-en="YOU'VE BEEN HERE<br>FOR <span class='hollow' id='d-timer'>00:00</span>"
-      data-hi="आप यहाँ <br> <span class='hollow' id='d-timer-hi'>00:00</span> से हैं">
-      YOU'VE BEEN HERE<br>FOR <span class="hollow" id="d-timer">00:00</span>
+      data-hi="आप यहाँ <br> <span class='hollow' id='d-timer-hi'>00:00</span> से हैं" aria-live="polite">
+      YOU'VE BEEN HERE<br>FOR <span class="hollow" id="d-timer" aria-label="Time on page">00:00</span>
     </div>
     <p class="damage-sub t-lang" data-en="In that time, Earth paid the bill. Here is the receipt."
       data-hi="उस समय में, धरती ने कीमत चुकाई। यह उसकी रसीद है।">In that time, Earth paid the bill. Here is the receipt.
