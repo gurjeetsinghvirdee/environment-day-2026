@@ -121,6 +121,14 @@ let personalData = {
   lang: localStorage.getItem('earthDying_lang') || 'en'
 };
 
+// ── MULTIPLIERS: MUST BE BEFORE loadState() & applyLanguage() ──
+const MULTIPLIERS = {
+  commute: { none: 0, bike: 50, public: 1000, car: 3000 },
+  diet: { veg: 1500, mixed: 2500, heavy: 3300 },
+  electric: { light: 500, medium: 1500, heavy: 3000 },
+  ac: 438 // per hour
+};
+
 // ── STATE MANAGEMENT: URL BOOKMARKING & LOCAL STORAGE ──
 function saveState() {
   localStorage.setItem('earthDying_lang', personalData.lang);
@@ -221,13 +229,6 @@ document.querySelectorAll('.continent').forEach(continent => {
     }
   });
 });
-
-const MULTIPLIERS = {
-  commute: { none: 0, bike: 50, public: 1000, car: 3000 },
-  diet: { veg: 1500, mixed: 2500, heavy: 3300 },
-  electric: { light: 500, medium: 1500, heavy: 3000 },
-  ac: 438 // per hour
-};
 
 function updateImpact() {
   const yearly = MULTIPLIERS.commute[personalData.commute] +
