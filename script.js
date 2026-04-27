@@ -131,15 +131,13 @@ const MULTIPLIERS = {
 
 // ── STATE MANAGEMENT: URL BOOKMARKING & LOCAL STORAGE ──
 function saveState() {
-  localStorage.setItem('earthDying_lang', personalData.lang);
   localStorage.setItem('earthDying_commute', personalData.commute);
   localStorage.setItem('earthDying_ac', personalData.ac);
   localStorage.setItem('earthDying_diet', personalData.diet);
   localStorage.setItem('earthDying_electric', personalData.electric);
   
-  // Create shareable URL
+  // Create shareable URL (lang removed - English only)
   const params = new URLSearchParams({
-    lang: personalData.lang,
     commute: personalData.commute,
     ac: personalData.ac,
     diet: personalData.diet,
@@ -153,7 +151,7 @@ function saveState() {
 function loadState() {
   const params = new URLSearchParams(window.location.search);
   
-  if (params.has('lang')) personalData.lang = params.get('lang');
+  // Load from URL params first
   if (params.has('commute')) personalData.commute = params.get('commute');
   if (params.has('ac')) personalData.ac = parseInt(params.get('ac'));
   if (params.has('diet')) personalData.diet = params.get('diet');
@@ -168,7 +166,7 @@ function loadState() {
 
 // Lazy load();
 loadState();
-applyLanguage(personalData.lang);
+// applyLanguage(personalData.lang); // Hindi support removed
 
 // ── GLOBE INTERACTIVITY ──────────────
 // Make continents interactive
@@ -273,6 +271,31 @@ if (acSlider) {
   });
 }
 
+// ── APPLY LOADED STATE TO UI ──────────
+function applyUIState() {
+  // Set AC slider
+  if (acSlider) acSlider.value = personalData.ac;
+  if (acVal) acVal.textContent = personalData.ac + 'h';
+  
+  // Mark active buttons for commute, diet, electric
+  document.querySelectorAll('.toggle-group button').forEach(btn => {
+    const btnValue = btn.getAttribute('data-val');
+    if (btnValue) {
+      if (btnValue === personalData.commute || 
+          btnValue === personalData.diet || 
+          btnValue === personalData.electric) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+  });
+  
+  updateImpact();
+}
+
+applyUIState();
+
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -301,7 +324,8 @@ function announceToScreenReader(message) {
   setTimeout(() => announcement.remove(), 1000);
 }
 
-// Language Toggle
+// Language Toggle - REMOVED (Hindi support removed)
+/*
 function toggleLang() {
   personalData.lang = personalData.lang === 'en' ? 'hi' : 'en';
   applyLanguage(personalData.lang);
@@ -333,6 +357,7 @@ function applyLanguage(lang) {
   reMapRefs();
   updateImpact();
 }
+*/
 
 function reMapRefs() {
   // Update refs that might be inside t-lang blocks

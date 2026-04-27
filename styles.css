@@ -70,7 +70,8 @@ body {
   overflow-x: hidden;
 }
 
-/* ── HINDI SCALING ── */
+/* ── HINDI SCALING ── REMOVED (Hindi support removed) */
+/*
 [data-lang="hi"] .t-lang {
   font-size: 1.15rem;
   font-weight: 500;
@@ -78,33 +79,33 @@ body {
 
 [data-lang="hi"] .section-h2.t-lang,
 [data-lang="hi"] .action-h2.t-lang {
-  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
   margin-bottom: 4rem;
   line-height: 1.2;
   font-weight: 600;
 }
 
 [data-lang="hi"] .section-eyebrow.t-lang {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   letter-spacing: .1em;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 [data-lang="hi"] p.t-lang {
-  font-size: xx-large;
+  font-size: 1.1rem;
   line-height: 1.65;
   margin-bottom: 2rem;
   font-weight: 500;
 }
 
 [data-lang="hi"] .bar-brand {
-  font-size: 2.1rem;
+  font-size: 1.4rem;
   letter-spacing: .02em;
 }
 
 [data-lang="hi"] .f-brand {
-  font-size: 3.5rem;
+  font-size: 2.2rem;
   letter-spacing: .02em;
 }
 
@@ -118,17 +119,16 @@ body {
 }
 
 [data-lang="hi"] .stat-num {
-  font-size: clamp(4.5rem, 11vw, 10rem);
+  font-size: clamp(2.8rem, 8vw, 5rem);
 }
 
 [data-lang="hi"] .damage-headline {
-  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
   line-height: 1.1;
 }
 
 [data-lang="hi"] .hero-context {
-  font-size: 2.5rem;
-  /* x-large equivalent for Hindi */
+  font-size: 1.2rem;
   line-height: 1.4;
   font-weight: 500;
 }
@@ -159,7 +159,6 @@ body {
 
 [data-lang="hi"] .action-lead--big {
   font-size: clamp(1.8rem, 2.5vw, 2.8rem);
-  /* h2/h3 size */
   line-height: 1.4;
   max-width: 800px;
 }
@@ -172,13 +171,12 @@ body {
 }
 
 [data-lang="hi"] .exit-line {
-  font-size: clamp(3rem, 7vw, 7rem);
-  /* h2/h3 size */
+  font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.2;
 }
 
 [data-lang="hi"] .res-value {
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -196,7 +194,6 @@ body {
   padding: 0.8rem 1.2rem;
 }
 
-/* Data lie section lines */
 [data-lang="hi"] .h-line-1,
 [data-lang="hi"] .h-line-2 {
   display: block;
@@ -208,9 +205,9 @@ body {
 
 [data-lang="hi"] .h-line-2 {
   -webkit-text-stroke: 1.5px var(--muted);
-  /* Slightly thicker for Hindi legibility */
   color: transparent;
 }
+*/
 
 ::-webkit-scrollbar {
   width: 3px
