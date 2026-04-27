@@ -6,6 +6,7 @@ const PLASTIC_RATE = 14587;
 
 const YEAR_START = new Date('2026-01-01T00:00:00Z').getTime();
 const PAGE_START = Date.now();
+const rootEl = document.documentElement;
 
 // Force scroll to top on refresh
 if (history.scrollRestoration) {
@@ -20,7 +21,19 @@ window.addEventListener('scroll', () => {
   const scrolled = (winScroll / height) * 100;
   const sp = document.getElementById('scroll-progress');
   if (sp) sp.style.width = scrolled + '%';
+  rootEl.style.setProperty('--story-progress', Math.max(0, Math.min(1, scrolled / 100)).toFixed(4));
 });
+
+window.addEventListener('pointermove', event => {
+  const x = event.clientX / window.innerWidth;
+  const y = event.clientY / window.innerHeight;
+  rootEl.style.setProperty('--pointer-x', Math.max(0, Math.min(1, x)).toFixed(4));
+  rootEl.style.setProperty('--pointer-y', Math.max(0, Math.min(1, y)).toFixed(4));
+}, { passive: true });
+
+rootEl.style.setProperty('--story-progress', '0');
+rootEl.style.setProperty('--pointer-x', '.5');
+rootEl.style.setProperty('--pointer-y', '.35');
 
 // ── PARTICLE SYSTEM ─────────────────────
 (function initParticles() {
